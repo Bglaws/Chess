@@ -1,8 +1,17 @@
 
+import java.util.ArrayList;
 
 public class Board extends Piece {
 
-	static Piece Board[][] = new Piece[8][8];
+	public Board(Color color, String ID, int startX, int startY) {
+		super(color, ID, startX, startY);
+		// TODO Auto-generated constructor stub
+	}
+	
+	public static ArrayList<Piece> black = new ArrayList<Piece>();
+	public static ArrayList<Piece> white = new ArrayList<Piece>();
+
+	static Piece board[][] = new Piece[8][8];
 //	[][] board = {{" ", " ", " ", " ", " ", " ", " ", " "},   
 //							{" ", " ", " ", " ", " ", " ", " ", " "},	
 //							{" ", " ", " ", " ", " ", " ", " ", " "},	 
@@ -34,93 +43,272 @@ public class Board extends Piece {
 		System.out.println("    a   b   c   d   e   f   g   h");			
 	}
 	
-	static boolean getCoordinates(String move) {
+	
+	static void initPieces() {
 		
+	}
+	 
+	static void startGame() {
+														   
+		//black
+		Rook rook1 = new Rook(Color.BLACK, "rookQ", 0, 0); 
+		Knight knight1 = new Knight(Color.BLACK, "knightQ", 1, 0); 
+		Bishop bishop1 = new Bishop(Color.BLACK, "bishopQ", 2, 0); 
+		Queen queen1 = new Queen(Color.BLACK, "queen", 3, 0); 
+		King king1 = new King(Color.BLACK, "king", 4, 0); 
+		Bishop bishop2 = new Bishop(Color.BLACK, "bishopK", 5, 0); 
+		Knight knight2 = new Knight(Color.BLACK, "knightK", 6, 0); 
+		Rook rook2 = new Rook(Color.BLACK, "rookK", 7, 0); 
 		
-		if (move == "a1") {move = board[7][0]; isTileOpen(move);}
-		if (move == "a2") {move = board[6][0]; isTileOpen(move);}
-		if (move == "a3") {move = board[5][0]; isTileOpen(move);}
-		if (move == "a4") {move = board[4][0]; isTileOpen(move);}
-		if (move == "a5") {move = board[3][0]; isTileOpen(move);}
-		if (move == "a6") {move = board[2][0]; isTileOpen(move);}
-		if (move == "a7") {move = board[1][0]; isTileOpen(move);}
-		if (move == "a8") {move = board[0][0]; isTileOpen(move);}
+		Pawn pawn1 = new Pawn(Color.BLACK, "pawnA", 0, 1); 
+		Pawn pawn2 = new Pawn(Color.BLACK, "pawnB", 1, 1); 
+		Pawn pawn3 = new Pawn(Color.BLACK, "pawnC", 2, 1); 
+		Pawn pawn4 = new Pawn(Color.BLACK, "pawnD", 3, 1); 
+		Pawn pawn5 = new Pawn(Color.BLACK, "pawnE", 4, 1); 
+		Pawn pawn6 = new Pawn(Color.BLACK, "pawnF", 5, 1); 
+		Pawn pawn7 = new Pawn(Color.BLACK, "pawnG", 6, 1); 
+		Pawn pawn8 = new Pawn(Color.BLACK, "pawnH", 7, 1); 
+		 												//ArrayList index
+		black.add(rook1); board[0][0] = rook1;						  //0
+		black.add(knight1); board[0][1] = knight1;					  //1
+		black.add(bishop1);	board[0][2] = bishop1;					  //2 
+		black.add(queen1); board[0][3] = queen1;					  //3
+		black.add(king1); board[0][4] = king1;						  //4
+		black.add(bishop2);	board[0][5] = bishop2;					  //5 
+		black.add(knight2);	board[0][6] = knight2;					  //6 
+		black.add(rook2); board[0][7] = rook2;						  //7
 		
-		if (move == "b1") {move = board[7][1]; isTileOpen(move);}
-		if (move == "b2") {move = board[6][1]; isTileOpen(move);}
-		if (move == "b3") {move = board[5][1]; isTileOpen(move);}
-		if (move == "b4") {move = board[4][1]; isTileOpen(move);}
-		if (move == "b5") {move = board[3][1]; isTileOpen(move);}
-		if (move == "b6") {move = board[2][1]; isTileOpen(move);}
-		if (move == "b7") {move = board[1][1]; isTileOpen(move);}
-		if (move == "b8") {move = board[0][1]; isTileOpen(move);}
+		black.add(pawn1); board[1][0] = pawn1;						  //8
+		black.add(pawn2); board[1][1] = pawn2;						  //9	
+		black.add(pawn3); board[1][2] = pawn3;					      //10 
+		black.add(pawn4); board[1][3] = pawn4;						  //11
+		black.add(pawn5); board[1][4] = pawn5;                        //12
+		black.add(pawn6); board[1][5] = pawn6;						  //13
+		black.add(pawn7); board[1][6] = pawn7;						  //14
+		black.add(pawn8); board[1][7] = pawn8;						  //15 
 		
-		if (move == "c1") {move = board[7][2]; isTileOpen(move);}
-		if (move == "c2") {move = board[6][2]; isTileOpen(move);}
-		if (move == "c3") {move = board[5][2]; isTileOpen(move);}
-		if (move == "c4") {move = board[4][2]; isTileOpen(move);}
-		if (move == "c5") {move = board[3][2]; isTileOpen(move);}
-		if (move == "c6") {move = board[2][2]; isTileOpen(move);}
-		if (move == "c7") {move = board[1][2]; isTileOpen(move);}
-		if (move == "c8") {move = board[0][2]; isTileOpen(move);}
+		//white
+		Rook rook3 = new Rook(Color.WHITE, "rookQ", 0, 7); 
+		Knight knight3 = new Knight(Color.WHITE, "knightQ", 1, 7);
+		Bishop bishop3 = new Bishop(Color.WHITE, "bishopQ", 2, 7);
+		Queen queen2 = new Queen(Color.WHITE, "queen", 3, 7);
+		King king2 = new King(Color.WHITE, "king", 4, 7);
+		Bishop bishop4 = new Bishop(Color.WHITE, "bishopK", 5, 7);
+		Knight knight4 = new Knight(Color.WHITE, "knightK", 6, 7);
+		Rook rook4 = new Rook(Color.WHITE, "rookK", 7, 7);
 		
-		if (move == "d1") {move = board[7][3]; isTileOpen(move);}
-		if (move == "d2") {move = board[6][3]; isTileOpen(move);}
-		if (move == "d3") {move = board[5][3]; isTileOpen(move);}
-		if (move == "d4") {move = board[4][3]; isTileOpen(move);}
-		if (move == "d5") {move = board[3][3]; isTileOpen(move);}
-		if (move == "d6") {move = board[2][3]; isTileOpen(move);}
-		if (move == "d7") {move = board[1][3]; isTileOpen(move);}
-		if (move == "d8") {move = board[0][3]; isTileOpen(move);}
+		Pawn pawn9 = new Pawn(Color.WHITE, "pawnA", 0, 6);
+		Pawn pawn10 = new Pawn(Color.WHITE, "pawnB", 1, 6);
+		Pawn pawn11 = new Pawn(Color.WHITE, "pawnC", 2, 6);
+		Pawn pawn12 = new Pawn(Color.WHITE, "pawnD", 3, 6);
+		Pawn pawn13 = new Pawn(Color.WHITE, "pawnE", 4, 6);
+		Pawn pawn14 = new Pawn(Color.WHITE, "pawnF", 5, 6);
+		Pawn pawn15 = new Pawn(Color.WHITE, "pawnG", 6, 6);
+		Pawn pawn16 = new Pawn(Color.WHITE, "pawnH", 7, 6);
+														//ArrayList index
+		white.add(rook3); board[7][0] = rook3;  					  //0
+		white.add(knight3); board[7][1] = knight3;					  //1 
+		white.add(bishop3); board[7][2] = bishop3;					  //2
+		white.add(queen2); board[7][3] = queen2;  					  //3
+		white.add(king2); board[7][4] = king2;						  //4
+		white.add(bishop4); board[7][5] = bishop4; 					  //5 
+		white.add(knight4); board[7][6] = knight4;					  //6 
+		white.add(rook4); board[7][7] = rook4;					      //7
 		
-		if (move == "e1") {move = board[7][4]; isTileOpen(move);}
-		if (move == "e2") {move = board[6][4]; isTileOpen(move);}
-		if (move == "e3") {move = board[5][4]; isTileOpen(move);}
-		if (move == "e4") {move = board[4][4]; isTileOpen(move);}
-		if (move == "e5") {move = board[3][4]; isTileOpen(move);}
-		if (move == "e6") {move = board[2][4]; isTileOpen(move);}
-		if (move == "e7") {move = board[1][4]; isTileOpen(move);}
-		if (move == "e8") {move = board[0][4]; isTileOpen(move);}
+		white.add(pawn9); board[6][0] = pawn9;					      //8
+		white.add(pawn10); board[6][1] = pawn10;					  //9
+		white.add(pawn11); board[6][2] = pawn11;				      //10
+		white.add(pawn12); board[6][3] = pawn12;				      //11
+		white.add(pawn13); board[6][4] = pawn13;				      //12
+		white.add(pawn14); board[6][5] = pawn14;				      //13
+		white.add(pawn15); board[6][6] = pawn15; 					  //14
+		white.add(pawn16); board[6][7] = pawn16;				      //15
+	}
+	
+	
+	public static Piece getPiece(String piece, String player) {
 		
-		if (move == "f1") {move = board[7][5]; isTileOpen(move);}
-		if (move == "f2") {move = board[6][5]; isTileOpen(move);}
-		if (move == "f3") {move = board[5][5]; isTileOpen(move);}
-		if (move == "f4") {move = board[4][5]; isTileOpen(move);}
-		if (move == "f5") {move = board[3][5]; isTileOpen(move);}
-		if (move == "f6") {move = board[2][5]; isTileOpen(move);}
-		if (move == "f7") {move = board[1][5]; isTileOpen(move);}
-		if (move == "f8") {move = board[0][5]; isTileOpen(move);}
+		//Major and Minor pieces
+		if (piece.equals("rookQ")) { 
+			if (player.equals("white")) return white.get(0);
+			else if (player.equals("black")) return black.get(0);
+		}  
+		if (piece.equals("knightQ")) { 
+			if (player.equals("white")) return white.get(1);
+			else if (player.equals("black")) return black.get(1);
+		}  
+		if (piece.equals("bishopQ")) { 
+			if (player.equals("white")) return white.get(2);
+			else if (player.equals("black")) return black.get(2);
+		}  
+		if (piece.equals("queen")) { 
+			if (player.equals("white")) return white.get(3);
+			else if (player.equals("black")) return black.get(3);
+		}  
+		if (piece.equals("king")) { 
+			if (player.equals("white")) return white.get(4);
+			else if (player.equals("black")) return black.get(4);
+		}  
+		if (piece.equals("bishopK")) { 
+			if (player.equals("white")) return white.get(5);
+			else if (player.equals("black")) return black.get(5);
+		}  
+		if (piece.equals("knightK")) { 
+			if (player.equals("white")) return white.get(6);
+			else if (player.equals("black")) return black.get(6);
+		}  
+		if (piece.equals("rookK")) { 
+			if (player.equals("white")) return white.get(7);
+			else if (player.equals("black")) return black.get(7);
+		}  
 		
-		if (move == "g1") {move = board[7][6]; isTileOpen(move);}
-		if (move == "g2") {move = board[6][6]; isTileOpen(move);}
-		if (move == "g3") {move = board[5][6]; isTileOpen(move);}
-		if (move == "g4") {move = board[4][6]; isTileOpen(move);}
-		if (move == "g5") {move = board[3][6]; isTileOpen(move);}
-		if (move == "g6") {move = board[2][6]; isTileOpen(move);}
-		if (move == "g7") {move = board[1][6]; isTileOpen(move);}
-		if (move == "g8") {move = board[0][6]; isTileOpen(move);}
+		//pawns
+		if (piece.equals("pawnA")) { 
+			if (player.equals("white")) return white.get(8);
+			else if (player.equals("black")) return black.get(8);
+		}  
+		if (piece.equals("pawnB")) { 
+			if (player.equals("white")) return white.get(9);
+			else if (player.equals("black")) return black.get(9);
+		} 
+		if (piece.equals("pawnC")) { 
+			if (player.equals("white")) return white.get(10);
+			else if (player.equals("black")) return black.get(10);
+		} 
+		if (piece.equals("pawnD")) { 
+			if (player.equals("white")) return white.get(11);
+			else if (player.equals("black")) return black.get(11);
+		} 
+		if (piece.equals("pawnE")) { 
+			if (player.equals("white")) return white.get(12);
+			else if (player.equals("black")) return black.get(12);
+		} 
+		if (piece.equals("pawnF")) { 
+			if (player.equals("white")) return white.get(13);
+			else if (player.equals("black")) return black.get(13);
+		} 
+		if (piece.equals("pawnG")) { 
+			if (player.equals("white")) return white.get(14);
+			else if (player.equals("black")) return black.get(14);
+		} 
+		if (piece.equals("pawnH")) { 
+			if (player.equals("white")) return white.get(15);
+			else if (player.equals("black")) return black.get(15);
+		} 
 		
-		if (move == "h1") {move = board[7][7]; isTileOpen(move);}
-		if (move == "h2") {move = board[6][7]; isTileOpen(move);}
-		if (move == "h3") {move = board[5][7]; isTileOpen(move);}
-		if (move == "h4") {move = board[4][7]; isTileOpen(move);}
-		if (move == "h5") {move = board[3][7]; isTileOpen(move);}
-		if (move == "h6") {move = board[2][7]; isTileOpen(move);}
-		if (move == "h7") {move = board[1][7]; isTileOpen(move);}
-		if (move == "h8") {move = board[0][7]; isTileOpen(move);}
-			
-					
+		System.out.println("invalid piece, please type in full name of piece to move it.");
+		System.out.println("For pawns, type in \"pawn\" or \"Pawn\" followed by the file letter");
+		System.out.println("For bishops, knights and rooks, put \"Q\" or \"K\" to specify whichside");
+		System.out.println("Example: PawnA, bishopQ");
+		return null;
+		
+	}
+	
+	static boolean getCoordinates(String move, String piece) {
+
+		if (move == "a1") { isValidMove(piece, move); }
+		else if (move == "a3") { isValidMove(piece, move); }
+		else if (move == "a4") { isValidMove(piece, move); }
+		else if (move == "a2") { isValidMove(piece, move); }
+		else if (move == "a5") { isValidMove(piece, move); }
+		else if (move == "a6") { isValidMove(piece, move); }
+		else if (move == "a7") { isValidMove(piece, move); }
+		else if (move == "a8") { isValidMove(piece, move); }
+
+		else if (move == "b1") { isValidMove(piece, move); }
+		else if (move == "b2") { isValidMove(piece, move); }
+		else if (move == "b3") { isValidMove(piece, move); }
+		else if (move == "b4") { isValidMove(piece, move); }
+		else if (move == "b5") { isValidMove(piece, move); }
+		else if (move == "b6") { isValidMove(piece, move); }
+		else if (move == "b7") { isValidMove(piece, move); }
+		else if (move == "b8") { isValidMove(piece, move); }
+
+		else if (move == "c1") { isValidMove(piece, move); }
+		else if (move == "c2") { isValidMove(piece, move); }
+		else if (move == "c3") { isValidMove(piece, move); }
+		else if (move == "c4") { isValidMove(piece, move); }
+		else if (move == "c5") { isValidMove(piece, move); }
+		else if (move == "c6") { isValidMove(piece, move); }
+		else if (move == "c7") { isValidMove(piece, move); }
+		else if (move == "c8") { isValidMove(piece, move); }
+
+		else if (move == "d1") { isValidMove(piece, move); }
+		else if (move == "d2") { isValidMove(piece, move); }
+		else if (move == "d3") { isValidMove(piece, move); }
+		else if (move == "d4") { isValidMove(piece, move); }
+		else if (move == "d5") { isValidMove(piece, move); }
+		else if (move == "d6") { isValidMove(piece, move); }
+		else if (move == "d7") { isValidMove(piece, move); }
+		else if (move == "d8") { isValidMove(piece, move); }
+
+		else if (move == "e1") { isValidMove(piece, move); }
+		else if (move == "e2") { isValidMove(piece, move); }
+		else if (move == "e3") { isValidMove(piece, move); }
+		else if (move == "e4") { isValidMove(piece, move); }
+		else if (move == "e5") { isValidMove(piece, move); }
+		else if (move == "e6") { isValidMove(piece, move); }
+		else if (move == "e7") { isValidMove(piece, move); }
+		else if (move == "e8") { isValidMove(piece, move); }
+
+		else if (move == "f1") { isValidMove(piece, move); }
+		else if (move == "f2") { isValidMove(piece, move); }
+		else if (move == "f3") { isValidMove(piece, move); }
+		else if (move == "f4") { isValidMove(piece, move); }
+		else if (move == "f5") { isValidMove(piece, move); }
+		else if (move == "f6") { isValidMove(piece, move); }
+		else if (move == "f7") { isValidMove(piece, move); }
+		else if (move == "f8") { isValidMove(piece, move); }
+
+		else if (move == "g1") { isValidMove(piece, move); }
+		else if (move == "g2") { isValidMove(piece, move); }
+		else if (move == "g3") { isValidMove(piece, move); }
+		else if (move == "g4") { isValidMove(piece, move); }
+		else if (move == "g5") { isValidMove(piece, move); }
+		else if (move == "g6") { isValidMove(piece, move); }
+		else if (move == "g7") { isValidMove(piece, move); }
+		else if (move == "g8") { isValidMove(piece, move); }
+
+		else if (move == "h1") { isValidMove(piece, move); }
+		else if (move == "h2") { isValidMove(piece, move); }
+		else if (move == "h3") { isValidMove(piece, move); }
+		else if (move == "h4") { isValidMove(piece, move); }
+		else if (move == "h5") { isValidMove(piece, move); }
+		else if (move == "h6") { isValidMove(piece, move); }
+		else if (move == "h7") { isValidMove(piece, move); }
+		else if (move == "h8") { isValidMove(piece, move); }
+		
+
 		System.out.println("Invalid Tile please try again");
-		return false; 
+		return false;
+	}
+	
+	static boolean isValidMove(String piece, String move) {
+		
+		// get current position of selected piece 
+		
+		
+		//
+		//check to see if move is valid for selected piece, then if it is call isTileOpen. 
+		// else print "invalid move for " + piece
+		return false;
 	}
 	
 	static boolean isTileOpen(String move) {
+		
+		/*if tile is open move piece to specified coordinates, else call getColor to
+		 * find what piece is there, 
+		 */
 		if (move != " ") {
 			
 		}
 		
 		return false;
 	}
+
+	@Override
+	public void move(int x, int y) {
+		
+	}
 	
 }
-

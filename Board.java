@@ -1,13 +1,9 @@
 
 import java.util.ArrayList;
 
-public class Board extends Piece {
+public class Board  {
 
-	public Board(Color color, String ID, int startX, int startY) {
-		super(color, ID, startX, startY);
-		// TODO Auto-generated constructor stub
-	}
-	
+		
 	public static ArrayList<Piece> black = new ArrayList<Piece>();
 	public static ArrayList<Piece> white = new ArrayList<Piece>();
 
@@ -43,11 +39,14 @@ public class Board extends Piece {
 		System.out.println("    a   b   c   d   e   f   g   h");			
 	}
 	
-	
-	static void initPieces() {
-		
+	public static void setSpot(int x, int y, Piece piece) {
+		board[y][x] = piece;
 	}
-	 
+	public static Piece getSpot(int x, int y) {
+		return board[y][x];
+	}
+	
+	
 	static void startGame() {
 														   
 		//black
@@ -125,190 +124,104 @@ public class Board extends Piece {
 		white.add(pawn16); board[6][7] = pawn16;				      //15
 	}
 	
+	//check spot on board 
+	public static Piece getPiece(int x, int y) {
+		return board[y][x];
+	}
 	
-	public static Piece getPiece(String piece, String player) {
+	
+	//match String piece from user with Piece on board
+	public static Piece getPiece(String piece, Color color) {
 		
 		//Major and Minor pieces
-		if (piece.equals("rookQ")) { 
-			if (player.equals("white")) return white.get(0);
-			else if (player.equals("black")) return black.get(0);
-		}  
-		if (piece.equals("knightQ")) { 
-			if (player.equals("white")) return white.get(1);
-			else if (player.equals("black")) return black.get(1);
-		}  
-		if (piece.equals("bishopQ")) { 
-			if (player.equals("white")) return white.get(2);
-			else if (player.equals("black")) return black.get(2);
-		}  
-		if (piece.equals("queen")) { 
-			if (player.equals("white")) return white.get(3);
-			else if (player.equals("black")) return black.get(3);
-		}  
-		if (piece.equals("king")) { 
-			if (player.equals("white")) return white.get(4);
-			else if (player.equals("black")) return black.get(4);
-		}  
-		if (piece.equals("bishopK")) { 
-			if (player.equals("white")) return white.get(5);
-			else if (player.equals("black")) return black.get(5);
-		}  
-		if (piece.equals("knightK")) { 
-			if (player.equals("white")) return white.get(6);
-			else if (player.equals("black")) return black.get(6);
-		}  
-		if (piece.equals("rookK")) { 
-			if (player.equals("white")) return white.get(7);
-			else if (player.equals("black")) return black.get(7);
-		}  
 		
-		//pawns
-		if (piece.equals("pawnA")) { 
-			if (player.equals("white")) return white.get(8);
-			else if (player.equals("black")) return black.get(8);
-		}  
-		if (piece.equals("pawnB")) { 
-			if (player.equals("white")) return white.get(9);
-			else if (player.equals("black")) return black.get(9);
-		} 
-		if (piece.equals("pawnC")) { 
-			if (player.equals("white")) return white.get(10);
-			else if (player.equals("black")) return black.get(10);
-		} 
-		if (piece.equals("pawnD")) { 
-			if (player.equals("white")) return white.get(11);
-			else if (player.equals("black")) return black.get(11);
-		} 
-		if (piece.equals("pawnE")) { 
-			if (player.equals("white")) return white.get(12);
-			else if (player.equals("black")) return black.get(12);
-		} 
-		if (piece.equals("pawnF")) { 
-			if (player.equals("white")) return white.get(13);
-			else if (player.equals("black")) return black.get(13);
-		} 
-		if (piece.equals("pawnG")) { 
-			if (player.equals("white")) return white.get(14);
-			else if (player.equals("black")) return black.get(14);
-		} 
-		if (piece.equals("pawnH")) { 
-			if (player.equals("white")) return white.get(15);
-			else if (player.equals("black")) return black.get(15);
-		} 
+		if (color == Color.WHITE) {
+			
+			for (int i = 0; i < white.size(); i++) {
+				Piece p = white.get(i);
+				if (p.matchID(piece)) {
+					return p;
+				}
+			}
+		}
 		
-		System.out.println("invalid piece, please type in full name of piece to move it.");
-		System.out.println("For pawns, type in \"pawn\" or \"Pawn\" followed by the file letter");
-		System.out.println("For bishops, knights and rooks, put \"Q\" or \"K\" to specify whichside");
+		else if (color == Color.BLACK) {
+			
+			for (int i = 0; true; i++) {
+				Piece p = black.get(i);
+				if (p.matchID(piece)) {
+					return p;
+				}
+			}
+		}
+				
+		System.out.println("invalid piece, please type in piece to move it.");
+		System.out.println("For pawns, type in \"pawn\" followed by the file letter");
+		System.out.println("For bishops, knights and rooks, put \"Q\" or \"K\"");
 		System.out.println("Example: PawnA, bishopQ");
 		return null;
 		
 	}
 	
-	static boolean getCoordinates(String move, String piece) {
-
-		if (move == "a1") { isValidMove(piece, move); }
-		else if (move == "a3") { isValidMove(piece, move); }
-		else if (move == "a4") { isValidMove(piece, move); }
-		else if (move == "a2") { isValidMove(piece, move); }
-		else if (move == "a5") { isValidMove(piece, move); }
-		else if (move == "a6") { isValidMove(piece, move); }
-		else if (move == "a7") { isValidMove(piece, move); }
-		else if (move == "a8") { isValidMove(piece, move); }
-
-		else if (move == "b1") { isValidMove(piece, move); }
-		else if (move == "b2") { isValidMove(piece, move); }
-		else if (move == "b3") { isValidMove(piece, move); }
-		else if (move == "b4") { isValidMove(piece, move); }
-		else if (move == "b5") { isValidMove(piece, move); }
-		else if (move == "b6") { isValidMove(piece, move); }
-		else if (move == "b7") { isValidMove(piece, move); }
-		else if (move == "b8") { isValidMove(piece, move); }
-
-		else if (move == "c1") { isValidMove(piece, move); }
-		else if (move == "c2") { isValidMove(piece, move); }
-		else if (move == "c3") { isValidMove(piece, move); }
-		else if (move == "c4") { isValidMove(piece, move); }
-		else if (move == "c5") { isValidMove(piece, move); }
-		else if (move == "c6") { isValidMove(piece, move); }
-		else if (move == "c7") { isValidMove(piece, move); }
-		else if (move == "c8") { isValidMove(piece, move); }
-
-		else if (move == "d1") { isValidMove(piece, move); }
-		else if (move == "d2") { isValidMove(piece, move); }
-		else if (move == "d3") { isValidMove(piece, move); }
-		else if (move == "d4") { isValidMove(piece, move); }
-		else if (move == "d5") { isValidMove(piece, move); }
-		else if (move == "d6") { isValidMove(piece, move); }
-		else if (move == "d7") { isValidMove(piece, move); }
-		else if (move == "d8") { isValidMove(piece, move); }
-
-		else if (move == "e1") { isValidMove(piece, move); }
-		else if (move == "e2") { isValidMove(piece, move); }
-		else if (move == "e3") { isValidMove(piece, move); }
-		else if (move == "e4") { isValidMove(piece, move); }
-		else if (move == "e5") { isValidMove(piece, move); }
-		else if (move == "e6") { isValidMove(piece, move); }
-		else if (move == "e7") { isValidMove(piece, move); }
-		else if (move == "e8") { isValidMove(piece, move); }
-
-		else if (move == "f1") { isValidMove(piece, move); }
-		else if (move == "f2") { isValidMove(piece, move); }
-		else if (move == "f3") { isValidMove(piece, move); }
-		else if (move == "f4") { isValidMove(piece, move); }
-		else if (move == "f5") { isValidMove(piece, move); }
-		else if (move == "f6") { isValidMove(piece, move); }
-		else if (move == "f7") { isValidMove(piece, move); }
-		else if (move == "f8") { isValidMove(piece, move); }
-
-		else if (move == "g1") { isValidMove(piece, move); }
-		else if (move == "g2") { isValidMove(piece, move); }
-		else if (move == "g3") { isValidMove(piece, move); }
-		else if (move == "g4") { isValidMove(piece, move); }
-		else if (move == "g5") { isValidMove(piece, move); }
-		else if (move == "g6") { isValidMove(piece, move); }
-		else if (move == "g7") { isValidMove(piece, move); }
-		else if (move == "g8") { isValidMove(piece, move); }
-
-		else if (move == "h1") { isValidMove(piece, move); }
-		else if (move == "h2") { isValidMove(piece, move); }
-		else if (move == "h3") { isValidMove(piece, move); }
-		else if (move == "h4") { isValidMove(piece, move); }
-		else if (move == "h5") { isValidMove(piece, move); }
-		else if (move == "h6") { isValidMove(piece, move); }
-		else if (move == "h7") { isValidMove(piece, move); }
-		else if (move == "h8") { isValidMove(piece, move); }
+	static int processMove(String move, Color color) {
 		
-
-		System.out.println("Invalid Tile please try again");
-		return false;
-	}
-	
-	static boolean isValidMove(String piece, String move) {
+		String[] splitStr = move.split(" ");
+		String piece = splitStr[0];
+		System.out.println(piece);
+		Piece p = getPiece(piece, color);
 		
-		// get current position of selected piece 
+		String coordinates = splitStr[1];
+		System.out.println(coordinates);
 		
-		
-		//
-		//check to see if move is valid for selected piece, then if it is call isTileOpen. 
-		// else print "invalid move for " + piece
-		return false;
-	}
-	
-	static boolean isTileOpen(String move) {
-		
-		/*if tile is open move piece to specified coordinates, else call getColor to
-		 * find what piece is there, 
-		 */
-		if (move != " ") {
-			
+		if (coordinates.length() != 2) {
+			System.out.println("Invalid Tile please try again");
+			return -1;
 		}
 		
+		int rank = coordinates.charAt(0) - 'a'; //y
+		int file = coordinates.charAt(1) - '1'; //x
+		
+		if (rank < 0 || rank > 7 || file < 0 || file > 7) {
+			System.out.println("Invalid Tile please try again");
+			return -1;
+		}
+		
+		p.possibleMove(rank,file);
+		
+		System.out.println("Its valid dont worry");
+		return -1;
+	}
+	
+	
+	/* checkForCheck will iterate through every move possible for all opposing
+	 * pieces. check for check should check if there is a check against BOTH kings.
+	 * if the check is against the same color of the piece that just moved, It is an
+	 * ILLEGAL MOVE. if the check is against the opposite color of the piece that
+	 * just moved it is LEGAL. Note that checkForCheck can return false for a legal move
+	 * In addition, the checkForCheckmate() method should be called if there is a legal check.
+	 */ 
+	public static boolean checkForCheck(Color color) {
+		
+		//check which list to iterate over.
+	//	for ()
+		
 		return false;
 	}
-
-	@Override
-	public void move(int x, int y) {
+	//this method will loop through all the possible moves of all the remaining pieces of the team in check
+	public static boolean checkForCheckmate() {
+	
+		
+		return false;
 		
 	}
 	
+	
+
+	/*
+	 * @Override public void move(int x, int y) {
+	 * 
+	 * }
+	 */
+	
 }
+

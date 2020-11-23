@@ -3,50 +3,33 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class Game extends Board {
-	
-	
-	public Game(Color color, String ID, int startX, int startY) {
-		super(color, ID, startX, startY);
-	}
-
-	
+		
 	
 	public static void main(String[] args) {
-		Scanner coordinates = new Scanner(System.in);
-		Scanner chessman = new Scanner(System.in);
-		
-		initPieces();
+		Scanner moveChoice = new Scanner(System.in);
 		
 		startGame();
 				
 		printBoard();
 		int turns = 0;
-		Piece isValidPiece = null;
+		Piece validPiece = null;
 		boolean isValidTile = false;
 		boolean isTileOpen;
 		String piece = null;
 				
 		while (true/*while checkMate = false*/) {
+			System.out.println("Which piece would you like to move? Where would you like to move them?");
 			
+			String move = moveChoice.nextLine();
+						
 			if (turns % 2 == 0) {
-				player = "white";
-			}else player = "black"; 
-						
-			while (isValidPiece == null) {
-						
-			System.out.println("Which piece would you like to move? ");
-			piece = chessman.next();
-			isValidPiece = getPiece(piece,player);
-			System.out.println(piece);
+				if (Board.processMove(move,Color.WHITE) == 0) turns++;
 			}
-			while (isValidTile == false) {
-								
-				System.out.println("Where would you like to move them? ");
-				String move = coordinates.next();
-				isValidTile = getCoordinates(move,piece);
-								
+			else {
+				if (Board.processMove(move,Color.BLACK) == 0) turns++; 
+				
 			}
-						
+			printBoard();													
 		}
 		
 	}

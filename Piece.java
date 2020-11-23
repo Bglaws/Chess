@@ -35,7 +35,7 @@ public abstract class Piece {
 	    return this.color;
 	  }
 
-	  public boolean sameColor(myPiece otherPiece) {
+	  public boolean sameColor(Piece otherPiece) {
 	    return (this.color == otherPiece.getColor());
 	  }
 
@@ -56,7 +56,8 @@ public abstract class Piece {
 	    this.y = newY;
 	  }
 
-	  public abstract void move(int x, int y);
+	  public abstract boolean possibleMove(int x, int y);
+	  public abstract int move(int x, int y);
 	 
 		
 }

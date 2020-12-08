@@ -16,8 +16,11 @@ public class Game extends Board {
 		boolean isValidTile = false;
 		boolean isTileOpen;
 		String piece = null;
-				
+		
 		while (true/*while checkMate = false*/) {
+			if (turns % 2 == 0) { checkForCheck(Color.WHITE);}
+			else {checkForCheck(Color.BLACK);
+			}
 			System.out.println("Which piece would you like to move? Where would you like to move them?");
 			
 			String move = moveChoice.nextLine();
@@ -27,9 +30,11 @@ public class Game extends Board {
 			}
 			else {
 				if (Board.processMove(move,Color.BLACK) == 0) turns++; 
-				
 			}
-			printBoard();													
+			printBoard();
+			Piece p = Board.getPiece(0, 1);
+			Board.setPiece(0, 1, null);
+			
 		}
 		
 	}

@@ -55,10 +55,15 @@ public abstract class Piece {
 	  void setY(int newY) {
 	    this.y = newY;
 	  }
+	  
+	  public String nullToString() {
+		  return "   ";
+	  }
 
 	  public abstract boolean possibleMove(int x, int y);
+	  
 	  public abstract int move(int x, int y);
-	 
-		
+	  
+	  public abstract String toString();
 }
 

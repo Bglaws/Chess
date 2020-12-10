@@ -9,9 +9,20 @@ public class Rook extends Piece {
 	}
 
 	@Override
-	public void move(int x, int y) {
+	public int move(int x, int y) {
 		// TODO Auto-generated method stub
-		
+		return 0;
+	}
+
+	@Override
+	public boolean possibleMove(int x, int y) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public String toString() {
+		return "R";
 	}
 
 }

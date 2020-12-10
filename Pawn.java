@@ -17,27 +17,26 @@ public class Pawn extends Piece {
 		//TODO en passant, promotion
 		
 		   if (this.getColor() == Color.WHITE) {
-
+			   	
 			      // 2 spaces forward
 			      if (isFirstMove == true &&
-			          this.getY() - y == -2 &&
+			          this.getY() - y == 2 &&
 			          this.getX() - x == 0 &&
-			          Board.getSpot(x, y) == null) {
-			    	  System.out.println("valid move yerrrrr");
+			          Board.getPiece(x, y) == null) {
 			          return true;
 			      }
 			      // 1 space forward
-			      if (this.getY() - y == -1 &&
+			      if (this.getY() - y == 1 &&
 			          this.getX() - x == 0 &&
-			          Board.getSpot(x, y) == null) {
+			          Board.getPiece(x, y) == null) {
 			          return true;
 			      }
 
 			      // diagonal
-			      if (this.getY() - y == -1 &&
+			      if (this.getY() - y == 1 &&
 			          Math.abs(this.getX() - x) == 1 &&
-			          Board.getSpot(x, y) != null &&
-			          this.sameColor(Board.getSpot(x, y)) == false) {
+			          Board.getPiece(x, y) != null &&
+			          this.sameColor(Board.getPiece(x, y)) == false) {
 			          return true;
 			      }
 			    }
@@ -46,41 +45,45 @@ public class Pawn extends Piece {
 
 			      // 2 spaces forward
 			      if (isFirstMove == true &&
-			          this.getY() - y == 2 &&
+			          this.getY() - y == -2 &&
 			          this.getX() - x == 0 &&
-			          Board.getSpot(x, y) == null) {
+			          Board.getPiece(x, y) == null) {
 			        return true;
 			      }
 			      // 1 space forward
-			      if (this.getY() - y == 1 &&
+			      if (this.getY() - y == -1 &&
 			          this.getX() - x == 0 &&
-			          Board.getSpot(x, y) == null) {
+			          Board.getPiece(x, y) == null) {
 			        return true;
 			      }
 
 			      // diagonal
 			      if (this.getY() - y == 1 &&
 			          Math.abs(this.getX() - x) == 1 &&
-			          Board.getSpot(x, y) != null &&
-			          this.sameColor(Board.getSpot(x, y)) == false) {
+			          Board.getPiece(x, y) != null &&
+			          this.sameColor(Board.getPiece(x, y)) == false) {
 			        return true;
 			      }
 			    }
-		System.out.println("invalid move yo");
-		return false;
+		   return false;
 	}
 	
 	@Override
 	public int move(int x, int y) {
 				
 		if (possibleMove(x,y)) {
-			Board.setSpot(getX(),getY(), null);
-			Board.setSpot(x, y, this);
+			Board.setPiece(getX(),getY(), null);
+			Board.setPiece(x, y, this);
 			return 0;
 		}
 		return -1;
 		
 				
+	}
+
+	@Override
+	public String toString() {
+		return "P";
 	}
 
 }

@@ -21,10 +21,9 @@ public class Board {
 		System.out.println("    a   b   c   d   e   f   g   h");
 
 		System.out.println("  ---------------------------------");
-		int count = 8, count2 = count;
+		int count = 8;
 		for (int i = 0; i < 8; i++) {
-			System.out.print(count2 + " ");
-			count2--;
+			System.out.print(count + " ");
 			System.out.print("| ");
 			for (int j = 0; j < 8; j++) {
 				if (board[i][j] == null) {
@@ -154,6 +153,10 @@ public class Board {
 
 	// set piece to provided coordinates
 	public static void setPiece(int x, int y, Piece piece) {
+		if (piece != null) {
+			piece.setX(x);
+			piece.setY(y);
+		}
 		board[y][x] = piece;
 	}
 
@@ -191,15 +194,7 @@ public class Board {
 
 	}
 	
-	public void capturePiece(int x, int y, Color color) {
-		if (color == Color.WHITE) {
-			
-		}
-		
-		else if (color == Color.BLACK) {
-			
-		}
-	}
+	
 
 	static int processMove(String move, Color color) {
 
@@ -230,29 +225,11 @@ public class Board {
 		}
 		
 		//piece at destination
-		Piece o = getPiece(file,rank);
-		//coordinates of origin
-		int originX = p.getX();
-		int originY = p.getY();
+		Piece other = getPiece(file,rank);
 		
-
-		if (p.possibleMove(file,rank) == true) {
-			//HERE
-			//setPiece of piece being captured isnt working
-			//might have to write method to return index of piece in its arraylist
-			setPiece(file,rank,null);			
-			setPiece(file,rank,p);
-			setPiece(originX,originY,null);
-		}
-		
-		if (checkForCheck(color) == true) {
-			setPiece(originX,originY,p);
-			setPiece(file,rank,o);
-			System.out.println("invalid move: cannot put yourself in check.");
-			return -1;
-		}
-
-		return 0;
+			
+		return p.move(file, rank, other, color);
+	
 	}
 
 	/*

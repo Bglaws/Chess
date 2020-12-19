@@ -7,7 +7,7 @@ public class Knight extends Piece {
 	}
 
 	@Override
-	public int move(int x, int y) {
+	public int move(int x, int y, Piece other, Color color) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
@@ -22,6 +22,7 @@ public class Knight extends Piece {
 	public String toString() {
 		return "K";
 	}
+
 
 }
 

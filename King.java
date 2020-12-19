@@ -7,15 +7,16 @@ public class King extends Piece{
 	}
 
 	@Override
-	public int move(int x, int y) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
 	public boolean possibleMove(int x, int y) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+	
+	@Override
+	public int move(int x, int y, Piece other, Color color) {
+		return 0;
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
@@ -23,5 +24,6 @@ public class King extends Piece{
 		return "K";
 	}
 
+	
 }
 

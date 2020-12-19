@@ -12,10 +12,7 @@ public class Game extends Board {
 				
 		
 		int turns = 0;
-		Piece validPiece = null;
-		boolean isValidTile = false;
-		boolean isTileOpen;
-		String piece = null;
+		
 		
 		while (true/*while checkMate = false*/) {
 			if (turns % 2 == 0) {
@@ -35,10 +32,20 @@ public class Game extends Board {
 			String move = moveChoice.nextLine();
 						
 			if (turns % 2 == 0) {
-				if (Board.processMove(move,Color.WHITE) == 0) turns++;
+				if (Board.processMove(move,Color.WHITE) == 0) {
+					turns++;
+				}
+				else {
+					System.out.println("illegal move");
+				}
 			}
 			else {
-				if (Board.processMove(move,Color.BLACK) == 0) turns++; 
+				if (Board.processMove(move,Color.BLACK) == 0) {
+					turns++; 
+				}
+				else {
+					System.out.println("illegal move");
+				}
 			}
 			
 			

@@ -62,7 +62,7 @@ public abstract class Piece {
 
 	  public abstract boolean possibleMove(int x, int y);
 	  
-	  public abstract int move(int x, int y);
+	  public abstract int move(int x, int y, Piece other, Color color);
 	  
 	  public abstract String toString();
 }

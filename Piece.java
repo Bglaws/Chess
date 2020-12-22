@@ -24,45 +24,48 @@ public abstract class Piece {
 	  /* these do not need to change as they will
 	     be consistent across all piece types */
 	  public String getID() {
-	    return this.ID;
+		  return this.ID;
 	  }
 
 	  public boolean matchID(String ID) {
-	    return this.ID.equals(ID);
+		  return this.ID.equals(ID);
 	  }
 
 	  public Color getColor() {
-	    return this.color;
+		  return this.color;
 	  }
 
 	  public boolean sameColor(Piece otherPiece) {
-	    return (this.color == otherPiece.getColor());
+		  if (otherPiece == null) {
+			  return false;
+		  }
+		  return (this.color == otherPiece.getColor());
 	  }
 
 	  public int getX() {
-	    return this.x;
+		  return this.x;
 	  }
 
 	  void setX(int newX) {
-	    this.x = newX;
+		  this.x = newX;
 	  }
 
 	  public int getY() {
-	    return this.y;
+		  return this.y;
 	  }
 	  
 
 	  void setY(int newY) {
-	    this.y = newY;
-	  }
-	  
-	  public String nullToString() {
-		  return "   ";
+		  this.y = newY;
 	  }
 
 	  public abstract boolean possibleMove(int x, int y);
 	  
 	  public abstract int move(int x, int y, Piece other, Color color);
+	  
+	  public String nullToString() {
+		  return "   ";
+	  }
 	  
 	  public abstract String toString();
 }

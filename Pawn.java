@@ -15,6 +15,7 @@ public class Pawn extends Piece {
 	 */
 	public boolean possibleMove(int x, int y) {
 		//TODO en passant, promotion
+		//Pawn needs to check if the space infront of it is empty if it wants to move 2 spaces on its first move
 		
 		   if (this.getColor() == Color.WHITE) {
 			   	

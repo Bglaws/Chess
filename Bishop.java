@@ -8,7 +8,7 @@ public class Bishop extends Piece {
 
 	@Override
 	public boolean possibleMove(int x, int y) {
-		if (this.getColor() == Color.WHITE) {
+	/*	if (this.getColor() == Color.WHITE) {
 		   	
 			if (this.sameColor(Board.getPiece(x, y)) == true) {
 				System.out.println("Cannot capture own piece, invalid move");
@@ -37,7 +37,8 @@ public class Bishop extends Piece {
 			if (Math.abs(getX() - x) != Math.abs(getY() - y)) {
 		        return true;
 		    }
-	   }
+		}*/
+	   
 	   return false;
 	}
 	

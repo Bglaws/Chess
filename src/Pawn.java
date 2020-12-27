@@ -17,20 +17,24 @@ public class Pawn extends Piece {
 		//TODO en passant, promotion
 		//Pawn needs to check if the space infront of it is empty if it wants to move 2 spaces on its first move
 		
+		
+		//somewhere in here
 		   if (this.getColor() == Color.WHITE) {
 			   	
 			      // 2 spaces forward
 			      if (isFirstMove == true &&
 			          this.getY() - y == 2 &&
 			          this.getX() - x == 0 &&
+			          Board.isPathClear(getX(), getY(), x, y) &&
 			          Board.getPiece(x, y) == null) {
-			          return true;
+				    	  isFirstMove = false;
+				          return true;
 			      }
 			      // 1 space forward
 			      if (this.getY() - y == 1 &&
 			          this.getX() - x == 0 &&
 			          Board.getPiece(x, y) == null) {
-			          return true;
+			    	  	return true;
 			      }
 
 			      // diagonal
@@ -38,32 +42,33 @@ public class Pawn extends Piece {
 			          Math.abs(this.getX() - x) == 1 &&
 			          Board.getPiece(x, y) != null &&
 			          this.sameColor(Board.getPiece(x, y)) == false) {
-			          return true;
+			    	  	return true;
 			      }
 			    }
 
 		   if (this.getColor() == Color.BLACK) {
-
 			      // 2 spaces forward
 			      if (isFirstMove == true &&
 			          this.getY() - y == -2 &&
 			          this.getX() - x == 0 &&
+			          Board.isPathClear(getX(), getY(), x, y) &&
 			          Board.getPiece(x, y) == null) {
-			        return true;
+						isFirstMove = false;
+						return true;
 			      }
 			      // 1 space forward
 			      if (this.getY() - y == -1 &&
 			          this.getX() - x == 0 &&
 			          Board.getPiece(x, y) == null) {
-			        return true;
+			    	  	return true;
 			      }
 
 			      // diagonal
-			      if (this.getY() - y == 1 &&
+			      if (this.getY() - y == -1 &&
 			          Math.abs(this.getX() - x) == 1 &&
 			          Board.getPiece(x, y) != null &&
 			          this.sameColor(Board.getPiece(x, y)) == false) {
-			        return true;
+			    	  	return true;
 			      }
 			    }
 		   return false;
@@ -74,7 +79,6 @@ public class Pawn extends Piece {
 		if (this.possibleMove(x, y) != true) {
 			return -1;
 		}
-		
 		int originX = this.getX();
 		int originY = this.getY();
 			
@@ -107,6 +111,7 @@ public class Pawn extends Piece {
 
 	@Override
 	public String toString() {
+		//String file = this.getID() - charAt(0);
 		return "P";
 	}
 

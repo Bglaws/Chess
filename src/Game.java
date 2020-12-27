@@ -28,7 +28,11 @@ public class Game extends Board {
 			printBoard();
 			
 			System.out.println("Which piece would you like to move? Where would you like to move them?");
-			
+			if (turns % 2 == 0) {
+				System.out.println("White's turn");
+			} else {
+				System.out.println("Black's turn");
+			}
 			String move = moveChoice.nextLine();
 						
 			if (turns % 2 == 0) {

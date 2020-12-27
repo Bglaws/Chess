@@ -182,7 +182,7 @@ public class Board {
 
 		else if (color == Color.BLACK) {
 
-			for (int i = 0; true; i++) {
+			for (int i = 0; i < black.size(); i++) {
 				Piece p = black.get(i);
 				if (p.matchID(piece)) {
 					return p;
@@ -194,6 +194,47 @@ public class Board {
 
 	}
 	
+	public static boolean isPathClear(int x1, int y1, int x2, int y2) {
+		
+		int xDistance = x2 - x1;
+		int yDistance = y2 - y1;
+		int xDir = 0;
+		int yDir = 0;
+		int size = 0;
+		
+		if (xDistance < 0) {
+			xDir = -1;
+		}
+		else if (xDistance > 0) {
+			xDir = 1;
+		}
+		
+		if (yDistance < 0) {
+			yDir = -1;
+		}
+		else if (yDistance > 0) {
+			yDir = 1;
+		}
+		
+		if (xDistance != 0) {
+			size = Math.abs(xDistance) - 1;
+		}
+		else {
+			size = Math.abs(yDistance) - 1;
+		}
+		//change on x and y
+		
+		for (int i = 0; i < size; i++) {
+			x1 += xDir;
+			y1 += yDir;
+			
+			if (getPiece(x1,y1) != null) {
+				return false;
+			}
+		}
+		return true;
+	
+	}
 	
 
 	static int processMove(String move, Color color) {
@@ -227,7 +268,6 @@ public class Board {
 		//piece at destination
 		Piece other = getPiece(file,rank);
 		
-			
 		return p.move(file, rank, other, color);
 	
 	}

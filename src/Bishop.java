@@ -8,7 +8,8 @@ public class Bishop extends Piece {
 
 	@Override
 	public boolean possibleMove(int x, int y) {
-	/*	if (this.getColor() == Color.WHITE) {
+		
+		if (this.getColor() == Color.WHITE) {
 		   	
 			if (this.sameColor(Board.getPiece(x, y)) == true) {
 				System.out.println("Cannot capture own piece, invalid move");
@@ -19,11 +20,8 @@ public class Bishop extends Piece {
 		        return false;
 		    }
 			
-			while (true) {
-				int i = getX();
-				int j = getY();
-				
-				
+			if (Board.isPathClear(getX(), getY(), x, y)) {
+				return true;
 			}
 		}
 
@@ -35,9 +33,13 @@ public class Bishop extends Piece {
 			}
 			
 			if (Math.abs(getX() - x) != Math.abs(getY() - y)) {
-		        return true;
+		        return false;
 		    }
-		}*/
+			
+			if (Board.isPathClear(getX(), getY(), x, y)) {
+				return true;
+			}
+		}
 	   
 	   return false;
 	}
@@ -51,7 +53,8 @@ public class Bishop extends Piece {
 		
 		int originX = this.getX();
 		int originY = this.getY();
-			
+
+		
 		if (this.getColor() == Color.WHITE) {
 			Board.black.remove(other);
 		}

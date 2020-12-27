@@ -4,16 +4,14 @@ import java.util.ArrayList;
 
 public class Game extends Board {
 		
-	
+	//TODO en passant, castling, stalemate, checkForCheckmate
 	public static void main(String[] args) {
 		Scanner moveChoice = new Scanner(System.in);
 		
 		startGame();
 				
-		
 		int turns = 0;
-		
-		
+				
 		while (true/*while checkMate = false*/) {
 			if (turns % 2 == 0) {
 				if (checkForCheck(Color.WHITE) == true) {

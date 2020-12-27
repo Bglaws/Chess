@@ -168,8 +168,6 @@ public class Board {
 	// match String piece from user with Piece on board
 	public static Piece getPiece(String piece, Color color) {
 
-		// Major and Minor pieces
-
 		if (color == Color.WHITE) {
 
 			for (int i = 0; i < white.size(); i++) {
@@ -272,15 +270,6 @@ public class Board {
 	
 	}
 
-	/*
-	 * checkForCheck will iterate through every move possible for all opposing
-	 * pieces. check for check should check if there is a check against BOTH kings.
-	 * if the check is against the same color of the piece that just moved, It is an
-	 * ILLEGAL MOVE. if the check is against the opposite color of the piece that
-	 * just moved it is LEGAL. Note that checkForCheck can return false for a legal
-	 * move In addition, the checkForCheckmate() method should be called if there is
-	 * a legal check.
-	 */
 	public static boolean checkForCheck(Color color) {
 
 		
@@ -308,8 +297,6 @@ public class Board {
 		return false;
 	}
 
-	// this method will loop through all the possible moves of all the remaining
-	// pieces of the team in check
 	public static boolean checkForCheckmate() {
 
 		return false;

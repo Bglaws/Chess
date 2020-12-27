@@ -61,7 +61,39 @@ public abstract class Piece {
 
 	  public abstract boolean possibleMove(int x, int y);
 	  
-	  public abstract int move(int x, int y, Piece other, Color color);
+	  public int move(int x, int y, Piece other, Color color) {
+			if (this.possibleMove(x, y) != true) {
+				return -1;
+			}
+			int originX = this.getX();
+			int originY = this.getY();
+				
+			if (this.getColor() == Color.WHITE) {
+				Board.black.remove(other);
+			}
+			else {
+				Board.white.remove(other);
+			}
+			
+			Board.setPiece(originX, originY, null);
+			Board.setPiece(x, y, this);
+			
+			if (Board.checkForCheck(color) == true) {
+				if (this.getColor() == Color.WHITE) {
+					Board.black.add(other);
+				}
+				else {
+					Board.white.add(other);
+				}
+				
+				Board.setPiece(originX, originY, this);
+				Board.setPiece(x, y, other);
+				System.out.println("invalid move: cannot put yourself in check.");
+				return -1;
+			}
+			
+			return 0;
+		}
 	  
 	  public String nullToString() {
 		  return "   ";

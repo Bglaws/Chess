@@ -43,7 +43,11 @@ public class Board {
 	
 	
 	static void startGame() {
-
+		System.out.println("How to play:");
+		System.out.println("For pawns, type in \"pawn\" followed by the file letter");
+		System.out.println("For bishops, knights and rooks, put \"Q\" or \"K\" to specify Queen's or King's side");
+		System.out.println("provide a space and then enter a valid tile. For example, pawnA a4");
+		System.out.println("To castle, type castle, followed by a space and then a capital K or Q to specify a side");
 		// black
 		Rook rook1 = new Rook(Color.BLACK, "rookQ", 0, 0);
 		Knight knight1 = new Knight(Color.BLACK, "knightQ", 1, 0);
@@ -63,39 +67,23 @@ public class Board {
 		Pawn pawn7 = new Pawn(Color.BLACK, "pawnG", 6, 1);
 		Pawn pawn8 = new Pawn(Color.BLACK, "pawnH", 7, 1);
 		// ArrayList index
-		black.add(rook1);
-		board[0][0] = rook1; // 0
-		black.add(knight1);
-		board[0][1] = knight1; // 1
-		black.add(bishop1);
-		board[0][2] = bishop1; // 2
-		black.add(queen1);
-		board[0][3] = queen1; // 3
-		black.add(king1);
-		board[0][4] = king1; // 4
-		black.add(bishop2);
-		board[0][5] = bishop2; // 5
-		black.add(knight2);
-		board[0][6] = knight2; // 6
-		black.add(rook2);
-		board[0][7] = rook2; // 7
+		black.add(rook1); board[0][0] = rook1; // 0
+		black.add(knight1); board[0][1] = knight1; // 1
+		black.add(bishop1); board[0][2] = bishop1; // 2
+		black.add(queen1); board[0][3] = queen1; // 3
+		black.add(king1); board[0][4] = king1; // 4
+		black.add(bishop2); board[0][5] = bishop2; // 5
+		black.add(knight2); board[0][6] = knight2; // 6
+		black.add(rook2); board[0][7] = rook2; // 7
 
-		black.add(pawn1);
-		board[1][0] = pawn1; // 8
-		black.add(pawn2);
-		board[1][1] = pawn2; // 9
-		black.add(pawn3);
-		board[1][2] = pawn3; // 10
-		black.add(pawn4);
-		board[1][3] = pawn4; // 11
-		black.add(pawn5);
-		board[1][4] = pawn5; // 12
-		black.add(pawn6);
-		board[1][5] = pawn6; // 13
-		black.add(pawn7);
-		board[1][6] = pawn7; // 14
-		black.add(pawn8);
-		board[1][7] = pawn8; // 15
+		black.add(pawn1); board[1][0] = pawn1; // 8
+		black.add(pawn2); board[1][1] = pawn2; // 9
+		black.add(pawn3); board[1][2] = pawn3; // 10
+		black.add(pawn4); board[1][3] = pawn4; // 11
+		black.add(pawn5); board[1][4] = pawn5; // 12
+		black.add(pawn6); board[1][5] = pawn6; // 13
+		black.add(pawn7); board[1][6] = pawn7; // 14
+		black.add(pawn8); board[1][7] = pawn8; // 15
 
 		// white
 		Rook rook3 = new Rook(Color.WHITE, "rookQ", 0, 7);
@@ -116,39 +104,23 @@ public class Board {
 		Pawn pawn15 = new Pawn(Color.WHITE, "pawnG", 6, 6);
 		Pawn pawn16 = new Pawn(Color.WHITE, "pawnH", 7, 6);
 		// ArrayList index
-		white.add(rook3);
-		board[7][0] = rook3; // 0
-		white.add(knight3);
-		board[7][1] = knight3; // 1
-		white.add(bishop3);
-		board[7][2] = bishop3; // 2
-		white.add(queen2);
-		board[7][3] = queen2; // 3
-		white.add(king2);
-		board[7][4] = king2; // 4
-		white.add(bishop4);
-		board[7][5] = bishop4; // 5
-		white.add(knight4);
-		board[7][6] = knight4; // 6
-		white.add(rook4);
-		board[7][7] = rook4; // 7
+		white.add(rook3); board[7][0] = rook3; // 0
+		white.add(knight3);	board[7][1] = knight3; // 1
+		white.add(bishop3); board[7][2] = bishop3; // 2
+		white.add(queen2); board[7][3] = queen2; // 3
+		white.add(king2); board[7][4] = king2; // 4
+		white.add(bishop4); board[7][5] = bishop4; // 5
+		white.add(knight4); board[7][6] = knight4; // 6
+		white.add(rook4); board[7][7] = rook4; // 7
 
-		white.add(pawn9);
-		board[6][0] = pawn9; // 8
-		white.add(pawn10);
-		board[6][1] = pawn10; // 9
-		white.add(pawn11);
-		board[6][2] = pawn11; // 10
-		white.add(pawn12);
-		board[6][3] = pawn12; // 11
-		white.add(pawn13);
-		board[6][4] = pawn13; // 12
-		white.add(pawn14);
-		board[6][5] = pawn14; // 13
-		white.add(pawn15);
-		board[6][6] = pawn15; // 14
-		white.add(pawn16);
-		board[6][7] = pawn16; // 15
+		white.add(pawn9); board[6][0] = pawn9; // 8
+		white.add(pawn10); board[6][1] = pawn10; // 9
+		white.add(pawn11); board[6][2] = pawn11; // 10
+		white.add(pawn12); board[6][3] = pawn12; // 11
+		white.add(pawn13); board[6][4] = pawn13; // 12
+		white.add(pawn14); board[6][5] = pawn14; // 13
+		white.add(pawn15); board[6][6] = pawn15; // 14
+		white.add(pawn16); board[6][7] = pawn16; // 15
 	}
 
 	// set piece to provided coordinates
@@ -240,12 +212,14 @@ public class Board {
 		String[] splitStr = move.split(" ");
 		String piece = splitStr[0];
 		
+		if (splitStr[0] == "castle") {
+			King king = (King) getPiece("king", color);
+			king.castle(splitStr[1], color);
+		}
 		//piece selected to move
 		Piece p = getPiece(piece, color);
 		if (p == null) {
 			System.out.println("invalid piece, please type in piece to move it.");
-			System.out.println("For pawns, type in \"pawn\" followed by the file letter");
-			System.out.println("For bishops, knights and rooks, put \"Q\" or \"K\"");
 			return -1;
 		}
 		

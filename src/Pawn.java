@@ -17,7 +17,7 @@ public class Pawn extends Piece {
 		if (this.getColor() == Color.WHITE) {
 			   	
 			// 2 spaces forward
-			if (isFirstMove == true &&
+			if (this.isFirstMove == true &&
 				this.getY() - y == 2 &&
 				this.getX() - x == 0 &&
 				Board.isPathClear(getX(), getY(), x, y) &&
@@ -43,27 +43,27 @@ public class Pawn extends Piece {
 	
 	   if (this.getColor() == Color.BLACK) {
 		   // 2 spaces forward
-		   if (isFirstMove == true &&
-		   this.getY() - y == -2 &&
-		   this.getX() - x == 0 &&
-		   Board.isPathClear(getX(), getY(), x, y) &&
-		   Board.getPiece(x, y) == null) {
-			   isFirstMove = false;
-			   return true;
+		   if (this.isFirstMove == true &&
+			   this.getY() - y == -2 &&
+			   this.getX() - x == 0 &&
+			   Board.isPathClear(getX(), getY(), x, y) &&
+			   Board.getPiece(x, y) == null) {
+				   isFirstMove = false;
+				   return true;
 		   }
 		   // 1 space forward
 		   if (this.getY() - y == -1 &&
-		   this.getX() - x == 0 &&
-		   Board.getPiece(x, y) == null) {
-			   return true;
+			   this.getX() - x == 0 &&
+			   Board.getPiece(x, y) == null) {
+				   return true;
 		   }
 
 		   // diagonal
 		   if (this.getY() - y == -1 &&
-		      Math.abs(this.getX() - x) == 1 &&
-		      Board.getPiece(x, y) != null &&
-		      this.sameColor(Board.getPiece(x, y)) == false) {
-			  	return true;
+			   Math.abs(this.getX() - x) == 1 &&
+			   Board.getPiece(x, y) != null &&
+			   this.sameColor(Board.getPiece(x, y)) == false) {
+			   	   return true;
 		   }
 	   }
 		   return false;

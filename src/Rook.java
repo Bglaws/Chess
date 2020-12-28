@@ -5,6 +5,7 @@ public class Rook extends Piece {
 	public Rook(Color color, String ID, int startX, int startY) {
 		super(color, ID, startX, startY);		
 	}
+	boolean isFirstMove = true;
 
 	@Override
 	public boolean possibleMove(int x, int y) {
@@ -21,6 +22,7 @@ public class Rook extends Piece {
 		    }
 			
 			if (Board.isPathClear(getX(), getY(), x, y)) {
+				isFirstMove = false;
 				return true;
 			}
 		}
@@ -37,6 +39,7 @@ public class Rook extends Piece {
 		    }
 			
 			if (Board.isPathClear(getX(), getY(), x, y)) {
+				isFirstMove = false;
 				return true;
 			}
 		}

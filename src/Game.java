@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Game extends Board {
 		
-	//TODO en passant, castling, stalemate, checkForCheckmate
+	//TODO en passant, pawn promotion, castling, stalemate, checkForCheckmate
 	public static void main(String[] args) {
 		Scanner moveChoice = new Scanner(System.in);
 		

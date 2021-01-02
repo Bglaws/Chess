@@ -56,18 +56,39 @@ public class King extends Piece{
 
 	public int castle(String side, Color c) {
 		
-		Rook rook = (Rook) Board.getPiece("rook",c);
-		//king's side castle
-		if (side == "K") {
-			if (this.isFirstMove == true &&
-				rook.isFirstMove == true) {
-				
+		Rook rook = (Rook) Board.getPiece("rook" + side, c);
+		
+		if (this.isFirstMove != true || rook.isFirstMove != true ||
+			Board.isPathClear(this.getX(),this.getY(),rook.getX(),rook.getY()) != true) {
+			System.out.println("Cannot castle if king or rook has already moved");
+			return -1;
+		}
+		
+		if (c == Color.WHITE) {
+			
+			if (side == "K") {
+				Board.setPiece(5, 0, rook);
+				Board.setPiece(6, 0, this);
+			}
+			
+			else if (side == "Q") {
+				Board.setPiece(3, 0, rook);
+				Board.setPiece(2, 0, this);
 			}
 		}
-		//queen's side castle
-		else if (side == "Q") {
-			
+		if (c == Color.BLACK) {
+
+			if (side == "K") {
+				Board.setPiece(3, 7, rook);
+				Board.setPiece(2, 7, this);
+			}
+
+			else if (side == "Q") {
+				Board.setPiece(3, 7, rook);
+				Board.setPiece(2, 7, this);
+			}
 		}
+		
 		
 		return 0;
 		

@@ -212,10 +212,14 @@ public class Board {
 		String[] splitStr = move.split(" ");
 		String piece = splitStr[0];
 		
-		if (splitStr[0] == "castle") {
+		System.out.println(piece);
+		
+		if (piece == "castle") {
 			King king = (King) getPiece("king", color);
-			king.castle(splitStr[1], color);
+			return king.castle(splitStr[1], color);
 		}
+		// somethings wrong here!!!
+		
 		//piece selected to move
 		Piece p = getPiece(piece, color);
 		if (p == null) {

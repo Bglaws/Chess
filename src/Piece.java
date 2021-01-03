@@ -1,104 +1,101 @@
 
-
 public abstract class Piece {
-	
-		
-	public static String player;	
-	
+
+	public static String player;
+
 	private final Color color;
-	
+
 	private final String ID;
 
-	  /* the current location of this piece */
-	  private int x, y;
+	/* the current location of this piece */
+	private int x, y;
 
-	  /* Piece constructor that should only be called
-	     from child class constructor */
-	  public Piece(Color color, String ID, int startX, int startY) {
-	    this.color = color;
-	    this.ID = ID;
-	    this.x = startX;
-	    this.y = startY;
-	  }
+	/*
+	 * Piece constructor that should only be called from child class constructor
+	 */
+	public Piece(Color color, String ID, int startX, int startY) {
+		this.color = color;
+		this.ID = ID;
+		this.x = startX;
+		this.y = startY;
+	}
 
-	  /* these do not need to change as they will
-	     be consistent across all piece types */
-	  public String getID() {
-		  return this.ID;
-	  }
+	/*
+	 * these do not need to change as they will be consistent across all piece types
+	 */
+	public String getID() {
+		return this.ID;
+	}
 
-	  public boolean matchID(String ID) {
-		  return this.ID.equals(ID);
-	  }
+	public boolean matchID(String ID) {
+		return this.ID.equals(ID);
+	}
 
-	  public Color getColor() {
-		  return this.color;
-	  }
+	public Color getColor() {
+		return this.color;
+	}
 
-	  public boolean sameColor(Piece otherPiece) {
-		  if (otherPiece == null) {
-			  return false;
-		  }
-		  return (this.color == otherPiece.getColor());
-	  }
-
-	  public int getX() {
-		  return this.x;
-	  }
-
-	  void setX(int newX) {
-		  this.x = newX;
-	  }
-
-	  public int getY() {
-		  return this.y;
-	  }
-	  
-
-	  void setY(int newY) {
-		  this.y = newY;
-	  }
-
-	  public abstract boolean possibleMove(int x, int y);
-	  
-	  public int move(int x, int y, Piece other, Color color) {
-			if (this.possibleMove(x, y) != true) {
-				return -1;
-			}
-			int originX = this.getX();
-			int originY = this.getY();
-				
-			if (this.getColor() == Color.WHITE) {
-				Board.black.remove(other);
-			}
-			else {
-				Board.white.remove(other);
-			}
-			
-			Board.setPiece(originX, originY, null);
-			Board.setPiece(x, y, this);
-			
-			if (Board.checkForCheck(color) == true) {
-				if (this.getColor() == Color.WHITE) {
-					Board.black.add(other);
-				}
-				else {
-					Board.white.add(other);
-				}
-				
-				Board.setPiece(originX, originY, this);
-				Board.setPiece(x, y, other);
-				System.out.println("invalid move: cannot put yourself in check.");
-				return -1;
-			}
-			
-			return 0;
+	public boolean sameColor(Piece otherPiece) {
+		if (otherPiece == null) {
+			return false;
 		}
-	  
-	  public String nullToString() {
-		  return "   ";
-	  }
-	  
-	  public abstract String toString();
-}
+		return (this.color == otherPiece.getColor());
+	}
 
+	public int getX() {
+		return this.x;
+	}
+
+	void setX(int newX) {
+		this.x = newX;
+	}
+
+	public int getY() {
+		return this.y;
+	}
+
+	void setY(int newY) {
+		this.y = newY;
+	}
+
+	public abstract boolean possibleMove(int x, int y);
+
+	public int move(int x, int y, Piece other, Color color) {
+		if (this.possibleMove(x, y) != true) {
+			System.out.println("is this it?");
+			return -1;
+		}
+		int originX = this.getX();
+		int originY = this.getY();
+
+		if (this.getColor() == Color.WHITE) {
+			Board.black.remove(other);
+		} else {
+			Board.white.remove(other);
+		}
+
+		Board.setPiece(originX, originY, null);
+		Board.setPiece(x, y, this);
+
+		if (Board.checkForCheck(color) == true) {
+			if (this.getColor() == Color.WHITE) {
+				Board.black.add(other);
+			} else {
+				Board.white.add(other);
+			}
+
+			Board.setPiece(originX, originY, this);
+			Board.setPiece(x, y, other);
+			System.out.println("invalid move: cannot put yourself in check.");
+			return -1;
+		}
+
+		return 0;
+	}
+
+	public String nullToString() {
+		return "   ";
+	}
+
+	public abstract String toString();
+}

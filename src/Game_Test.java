@@ -1,66 +1,54 @@
-import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
-public class Game_Test extends Board{
+import java.util.Scanner;
 
-	public static void read() throws FileNotFoundException {
-		Scanner sc = new Scanner(new File("game"));
-		String[] arr = new String[100];
-		Color color = null;
-		
-		for (int i = 0; sc.hasNext(); i++) {
-			
-			printBoard();
-			
-			if (i % 2 == 0) {
-				color = Color.WHITE;
-			}
-			else if (i % 2 != 0) {
-				color = Color.BLACK;
-			}
-			
-			arr[i] = sc.nextLine();
-			String[] splitStr = arr[i].split(" ");
-			String piece = splitStr[0];
-			
-			if (splitStr[0] == "castle") {
-				King king = (King) getPiece("king", color);
-				king.castle(splitStr[1], color);
-			}
-			//piece selected to move
-			Piece p = getPiece(piece, color);
-			if (p == null) {
-				System.out.println("invalid piece, please type in piece to move it.");
-				System.exit(0);
-			}
-			
-			String coordinates = splitStr[1];
-			if (coordinates.length() != 2) {
-				System.out.println("Invalid Tile please try again");
-				System.exit(0);;
-			}
+public class Game_Test {
 
-			int file = coordinates.charAt(0) - 'a'; // y
-			int rank = 7 - (coordinates.charAt(1) - '1'); // x
-
-			if (rank < 0 || rank > 7 || file < 0 || file > 7) {
-				System.out.println("Invalid Tile please try again");
-				System.exit(0);;
-			}
-			
-			//piece at destination
-			Piece other = getPiece(file,rank);
-			
-			p.move(file, rank, other, color);
-		
-		}
-				
-	}
-
+	// TODO en passant, pawn promotion, castling, stalemate, checkForCheckmate
 	public static void main(String[] args) throws FileNotFoundException {
-	
-		startGame();
-	
-		read();
+		Scanner moveChoice = new Scanner(new File("game.text"));
+
+		Board.startGame();
+
+		int turns = 0;
+
+		while (true/* while checkMate = false */) {
+			Board.printBoard();
+
+			if (turns % 2 == 0) {
+				if (Board.checkForCheck(Color.WHITE) == true) {
+					System.out.println("white is in check!");
+				}
+			} else {
+				if (Board.checkForCheck(Color.BLACK) == true) {
+					System.out.println("black is in check!");
+				}
+			}
+
+			System.out.println("Which piece would you like to move? Where would you like to move them?");
+			if (turns % 2 == 0) {
+				System.out.println("White's turn");
+			} else {
+				System.out.println("Black's turn");
+			}
+			String move = moveChoice.nextLine();
+
+			if (turns % 2 == 0) {
+				if (Board.processMove(move, Color.WHITE) == 0) {
+					turns++;
+				} else {
+					System.out.println("illegal move");
+				}
+			} else {
+				if (Board.processMove(move, Color.BLACK) == 0) {
+					turns++;
+				} else {
+					System.out.println("illegal move");
+				}
+			}
+
+		}
+
 	}
+
 }

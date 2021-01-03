@@ -1,30 +1,29 @@
 
 import java.util.Scanner;
-import java.util.ArrayList;
 
-public class Game extends Board {
-		
-	//TODO en passant, pawn promotion, castling, stalemate, checkForCheckmate
+public class Game {
+
+	// TODO en passant, pawn promotion, castling, stalemate, checkForCheckmate
 	public static void main(String[] args) {
 		Scanner moveChoice = new Scanner(System.in);
-		
-		startGame();
-				
+
+		Board.startGame();
+
 		int turns = 0;
-				
-		while (true/*while checkMate = false*/) {
+
+		while (true/* while checkMate = false */) {
+			Board.printBoard();
+
 			if (turns % 2 == 0) {
-				if (checkForCheck(Color.WHITE) == true) {
+				if (Board.checkForCheck(Color.WHITE) == true) {
 					System.out.println("white is in check!");
 				}
+			} else {
+				if (Board.checkForCheck(Color.BLACK) == true) {
+					System.out.println("black is in check!");
+				}
 			}
-			else {
-				if (checkForCheck(Color.BLACK) == true) {
-					System.out.println("black is in check!"); 
-				}			
-			}
-			printBoard();
-			
+
 			System.out.println("Which piece would you like to move? Where would you like to move them?");
 			if (turns % 2 == 0) {
 				System.out.println("White's turn");
@@ -32,27 +31,23 @@ public class Game extends Board {
 				System.out.println("Black's turn");
 			}
 			String move = moveChoice.nextLine();
-						
+
 			if (turns % 2 == 0) {
-				if (Board.processMove(move,Color.WHITE) == 0) {
+				if (Board.processMove(move, Color.WHITE) == 0) {
 					turns++;
+				} else {
+					System.out.println("illegal move");
 				}
-				else {
+			} else {
+				if (Board.processMove(move, Color.BLACK) == 0) {
+					turns++;
+				} else {
 					System.out.println("illegal move");
 				}
 			}
-			else {
-				if (Board.processMove(move,Color.BLACK) == 0) {
-					turns++; 
-				}
-				else {
-					System.out.println("illegal move");
-				}
-			}
-			
-			
+
 		}
-		
+
 	}
-	
+
 }

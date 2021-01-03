@@ -7,15 +7,6 @@ public class Board {
 	public static ArrayList<Piece> white = new ArrayList<Piece>();
 
 	static Piece board[][] = new Piece[8][8];
-//	[][] board = {{" ", " ", " ", " ", " ", " ", " ", " "},   
-//							{" ", " ", " ", " ", " ", " ", " ", " "},	
-//							{" ", " ", " ", " ", " ", " ", " ", " "},	 
-//							{" ", " ", " ", " ", " ", " ", " ", " "},	 
-//							{" ", " ", " ", " ", " ", " ", " ", " "},	 
-//							{" ", " ", " ", " ", " ", " ", " ", " "},	 
-//							{" ", " ", " ", " ", " ", " ", " ", " "},	 
-//							{" ", " ", " ", " ", " ", " ", " ", " "}};   
-//							  a    b    c    d    e    f    g    h
 
 	static void printBoard() {
 		System.out.println("    a   b   c   d   e   f   g   h");
@@ -27,9 +18,8 @@ public class Board {
 			System.out.print("| ");
 			for (int j = 0; j < 8; j++) {
 				if (board[i][j] == null) {
-				System.out.print("  | ");
-				}
-				else {
+					System.out.print("  | ");
+				} else {
 					System.out.print(board[i][j] + " | ");
 				}
 			}
@@ -40,8 +30,7 @@ public class Board {
 		}
 		System.out.println("    a   b   c   d   e   f   g   h");
 	}
-	
-	
+
 	static void startGame() {
 		System.out.println("How to play:");
 		System.out.println("For pawns, type in \"pawn\" followed by the file letter");
@@ -67,23 +56,39 @@ public class Board {
 		Pawn pawn7 = new Pawn(Color.BLACK, "pawnG", 6, 1);
 		Pawn pawn8 = new Pawn(Color.BLACK, "pawnH", 7, 1);
 		// ArrayList index
-		black.add(rook1); board[0][0] = rook1; // 0
-		black.add(knight1); board[0][1] = knight1; // 1
-		black.add(bishop1); board[0][2] = bishop1; // 2
-		black.add(queen1); board[0][3] = queen1; // 3
-		black.add(king1); board[0][4] = king1; // 4
-		black.add(bishop2); board[0][5] = bishop2; // 5
-		black.add(knight2); board[0][6] = knight2; // 6
-		black.add(rook2); board[0][7] = rook2; // 7
+		black.add(rook1);
+		board[0][0] = rook1; // 0
+		black.add(knight1);
+		board[0][1] = knight1; // 1
+		black.add(bishop1);
+		board[0][2] = bishop1; // 2
+		black.add(queen1);
+		board[0][3] = queen1; // 3
+		black.add(king1);
+		board[0][4] = king1; // 4
+		black.add(bishop2);
+		board[0][5] = bishop2; // 5
+		black.add(knight2);
+		board[0][6] = knight2; // 6
+		black.add(rook2);
+		board[0][7] = rook2; // 7
 
-		black.add(pawn1); board[1][0] = pawn1; // 8
-		black.add(pawn2); board[1][1] = pawn2; // 9
-		black.add(pawn3); board[1][2] = pawn3; // 10
-		black.add(pawn4); board[1][3] = pawn4; // 11
-		black.add(pawn5); board[1][4] = pawn5; // 12
-		black.add(pawn6); board[1][5] = pawn6; // 13
-		black.add(pawn7); board[1][6] = pawn7; // 14
-		black.add(pawn8); board[1][7] = pawn8; // 15
+		black.add(pawn1);
+		board[1][0] = pawn1; // 8
+		black.add(pawn2);
+		board[1][1] = pawn2; // 9
+		black.add(pawn3);
+		board[1][2] = pawn3; // 10
+		black.add(pawn4);
+		board[1][3] = pawn4; // 11
+		black.add(pawn5);
+		board[1][4] = pawn5; // 12
+		black.add(pawn6);
+		board[1][5] = pawn6; // 13
+		black.add(pawn7);
+		board[1][6] = pawn7; // 14
+		black.add(pawn8);
+		board[1][7] = pawn8; // 15
 
 		// white
 		Rook rook3 = new Rook(Color.WHITE, "rookQ", 0, 7);
@@ -104,23 +109,39 @@ public class Board {
 		Pawn pawn15 = new Pawn(Color.WHITE, "pawnG", 6, 6);
 		Pawn pawn16 = new Pawn(Color.WHITE, "pawnH", 7, 6);
 		// ArrayList index
-		white.add(rook3); board[7][0] = rook3; // 0
-		white.add(knight3);	board[7][1] = knight3; // 1
-		white.add(bishop3); board[7][2] = bishop3; // 2
-		white.add(queen2); board[7][3] = queen2; // 3
-		white.add(king2); board[7][4] = king2; // 4
-		white.add(bishop4); board[7][5] = bishop4; // 5
-		white.add(knight4); board[7][6] = knight4; // 6
-		white.add(rook4); board[7][7] = rook4; // 7
+		white.add(rook3);
+		board[7][0] = rook3; // 0
+		white.add(knight3);
+		board[7][1] = knight3; // 1
+		white.add(bishop3);
+		board[7][2] = bishop3; // 2
+		white.add(queen2);
+		board[7][3] = queen2; // 3
+		white.add(king2);
+		board[7][4] = king2; // 4
+		white.add(bishop4);
+		board[7][5] = bishop4; // 5
+		white.add(knight4);
+		board[7][6] = knight4; // 6
+		white.add(rook4);
+		board[7][7] = rook4; // 7
 
-		white.add(pawn9); board[6][0] = pawn9; // 8
-		white.add(pawn10); board[6][1] = pawn10; // 9
-		white.add(pawn11); board[6][2] = pawn11; // 10
-		white.add(pawn12); board[6][3] = pawn12; // 11
-		white.add(pawn13); board[6][4] = pawn13; // 12
-		white.add(pawn14); board[6][5] = pawn14; // 13
-		white.add(pawn15); board[6][6] = pawn15; // 14
-		white.add(pawn16); board[6][7] = pawn16; // 15
+		white.add(pawn9);
+		board[6][0] = pawn9; // 8
+		white.add(pawn10);
+		board[6][1] = pawn10; // 9
+		white.add(pawn11);
+		board[6][2] = pawn11; // 10
+		white.add(pawn12);
+		board[6][3] = pawn12; // 11
+		white.add(pawn13);
+		board[6][4] = pawn13; // 12
+		white.add(pawn14);
+		board[6][5] = pawn14; // 13
+		white.add(pawn15);
+		board[6][6] = pawn15; // 14
+		white.add(pawn16);
+		board[6][7] = pawn16; // 15
 	}
 
 	// set piece to provided coordinates
@@ -163,70 +184,63 @@ public class Board {
 		return null;
 
 	}
-	
+
 	public static boolean isPathClear(int x1, int y1, int x2, int y2) {
-		
+
 		int xDistance = x2 - x1;
 		int yDistance = y2 - y1;
 		int xDir = 0;
 		int yDir = 0;
 		int size = 0;
-		
+
 		if (xDistance < 0) {
 			xDir = -1;
-		}
-		else if (xDistance > 0) {
+		} else if (xDistance > 0) {
 			xDir = 1;
 		}
-		
+
 		if (yDistance < 0) {
 			yDir = -1;
-		}
-		else if (yDistance > 0) {
+		} else if (yDistance > 0) {
 			yDir = 1;
 		}
-		
+
 		if (xDistance != 0) {
 			size = Math.abs(xDistance) - 1;
-		}
-		else {
+		} else {
 			size = Math.abs(yDistance) - 1;
 		}
-		//change on x and y
-		
+		// change on x and y
+
 		for (int i = 0; i < size; i++) {
 			x1 += xDir;
 			y1 += yDir;
-			
-			if (getPiece(x1,y1) != null) {
+
+			if (getPiece(x1, y1) != null) {
 				return false;
 			}
 		}
 		return true;
-	
+
 	}
-	
 
 	static int processMove(String move, Color color) {
 
 		String[] splitStr = move.split(" ");
 		String piece = splitStr[0];
-		
-		System.out.println(piece);
-		
-		if (piece == "castle") {
+
+		if (piece.equals("castle")) {
 			King king = (King) getPiece("king", color);
-			return king.castle(splitStr[1], color);
+			return king.castle(splitStr[1]);
 		}
-		// somethings wrong here!!!
-		
-		//piece selected to move
+
+		// piece selected to move
 		Piece p = getPiece(piece, color);
 		if (p == null) {
 			System.out.println("invalid piece, please type in piece to move it.");
 			return -1;
 		}
-		
+
 		String coordinates = splitStr[1];
 		if (coordinates.length() != 2) {
 			System.out.println("Invalid Tile please try again");
@@ -240,38 +254,37 @@ public class Board {
 			System.out.println("Invalid Tile please try again");
 			return -1;
 		}
-		
-		//piece at destination
-		Piece other = getPiece(file,rank);
-		
+
+		// piece at destination
+		Piece other = getPiece(file, rank);
+
 		return p.move(file, rank, other, color);
-	
+
 	}
 
 	public static boolean checkForCheck(Color color) {
 
-		
 		Piece king = getPiece("king", color);
-		 
+
 		if (color == Color.WHITE) {
 			for (int i = 0; i < black.size(); i++) {
 				Piece p = black.get(i);
-				if (p.possibleMove(king.getX(),king.getY())) {
-					return true; 
-				} 
-			} 
+				if (p.possibleMove(king.getX(), king.getY())) {
+					System.out.println("king in check");
+					return true;
+				}
+			}
 		}
-		
+
 		else if (color == Color.BLACK) {
 			for (int i = 0; i < white.size(); i++) {
 				Piece p = white.get(i);
-				if (p.possibleMove(king.getX(),king.getY())) {
-					return true; 
-				} 
-			} 
+				if (p.possibleMove(king.getX(), king.getY())) {
+					return true;
+				}
+			}
 		}
 
-		
 		return false;
 	}
 
@@ -281,5 +294,4 @@ public class Board {
 
 	}
 
-	
 }

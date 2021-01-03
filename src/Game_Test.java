@@ -7,7 +7,6 @@ public class Game_Test {
 	// TODO en passant, pawn promotion, castling, stalemate, checkForCheckmate
 	public static void main(String[] args) throws FileNotFoundException {
 		Scanner moveChoice = new Scanner(new File("game.text"));
-
 		Board.startGame();
 
 		int turns = 0;
@@ -32,6 +31,7 @@ public class Game_Test {
 				System.out.println("Black's turn");
 			}
 			String move = moveChoice.nextLine();
+			System.out.println(move);
 
 			if (turns % 2 == 0) {
 				if (Board.processMove(move, Color.WHITE) == 0) {

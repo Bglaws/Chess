@@ -185,6 +185,7 @@ public class Board {
 
 	}
 
+	// HERE is path clear not working!!!
 	public static boolean isPathClear(int x1, int y1, int x2, int y2) {
 
 		int xDistance = x2 - x1;

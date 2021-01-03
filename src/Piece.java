@@ -62,7 +62,6 @@ public abstract class Piece {
 
 	public int move(int x, int y, Piece other, Color color) {
 		if (this.possibleMove(x, y) != true) {
-			System.out.println("is this it?");
 			return -1;
 		}
 		int originX = this.getX();

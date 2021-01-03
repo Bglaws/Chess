@@ -1,7 +1,10 @@
-pawnE e4
-pawnA a5
-bishopK d3
-pawnB b5
-knightK h3
-pawnC c5
-castle K
+pawnD d4
+pawnD d5
+knightQ a3
+knightQ a6
+bishopQ f4
+bishopQ f5
+queen d3
+queen d6
+castle Q
+castle Q

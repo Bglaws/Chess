@@ -1,8 +1,8 @@
-
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 public class Board {
-
+	static PrintWriter printWriter = new PrintWriter(System.out);
 	public static ArrayList<Piece> black = new ArrayList<Piece>();
 	public static ArrayList<Piece> white = new ArrayList<Piece>();
 
@@ -20,7 +20,8 @@ public class Board {
 				if (board[i][j] == null) {
 					System.out.print("  | ");
 				} else {
-					System.out.print(board[i][j] + " | ");
+					printWriter.print(board[i][j] + " | ");
+					printWriter.flush();
 				}
 			}
 			System.out.print(count);

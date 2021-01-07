@@ -1,3 +1,4 @@
+import java.io.PrintWriter;
 
 public class Bishop extends Piece {
 

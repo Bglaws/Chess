@@ -1,4 +1,3 @@
-import java.io.PrintWriter;
 
 public class Queen extends Piece {
 
@@ -27,7 +26,10 @@ public class Queen extends Piece {
 
 	@Override
 	public String toString() {
-		return "Q";
+		if (this.getColor() == Color.WHITE) {
+			return "♕";
+		}
+		return "♛";
 	}
 
 }

@@ -1,4 +1,3 @@
-import java.io.PrintWriter;
 
 public class Rook extends Piece {
 
@@ -29,7 +28,10 @@ public class Rook extends Piece {
 
 	@Override
 	public String toString() {
-		return "R";
+		if (this.getColor() == Color.WHITE) {
+			return "♖";
+		}
+		return "♜";
 	}
 
 }

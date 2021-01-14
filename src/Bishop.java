@@ -1,4 +1,3 @@
-import java.io.PrintWriter;
 
 public class Bishop extends Piece {
 
@@ -26,7 +25,10 @@ public class Bishop extends Piece {
 
 	@Override
 	public String toString() {
-		return "B";
+		if (this.getColor() == Color.WHITE) {
+			return "♗";
+		}
+		return "♝";
 	}
 
 }

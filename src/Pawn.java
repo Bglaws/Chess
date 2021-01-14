@@ -1,8 +1,5 @@
-import java.io.PrintWriter;
 
 public class Pawn extends Piece {
-
-	PrintWriter writer = new PrintWriter(System.out);
 
 	public Pawn(Color color, String ID, int startX, int startY) {
 		super(color, ID, startX, startY);
@@ -61,9 +58,9 @@ public class Pawn extends Piece {
 	@Override
 	public String toString() {
 		if (this.getColor() == Color.WHITE) {
-			return "U+2659";
+			return "♙";
 		}
-		return "U+265F";
+		return "♟";
 	}
 
 }

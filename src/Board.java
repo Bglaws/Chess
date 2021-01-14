@@ -20,8 +20,9 @@ public class Board {
 				if (board[i][j] == null) {
 					System.out.print("  | ");
 				} else {
-					printWriter.print(board[i][j] + " | ");
-					printWriter.flush();
+					System.out.print(board[i][j] + " | ");
+					// printWriter.print(board[i][j] + " | ");
+					// printWriter.flush();
 				}
 			}
 			System.out.print(count);
@@ -30,6 +31,7 @@ public class Board {
 			System.out.println("  ---------------------------------");
 		}
 		System.out.println("    a   b   c   d   e   f   g   h");
+		System.out.println();
 	}
 
 	static void startGame() {
@@ -37,7 +39,7 @@ public class Board {
 		System.out.println("For pawns, type in \"pawn\" followed by the file letter");
 		System.out.println("For bishops, knights and rooks, put \"Q\" or \"K\" to specify Queen's or King's side");
 		System.out.println("provide a space and then enter a valid tile. For example, pawnA a4");
-		System.out.println("To castle, type castle, followed by a space and then a capital K or Q to specify a side");
+		System.out.println("To castle, type castle, followed by a space and then a capital K or Q to specify a side\n");
 		// black
 		Rook rook1 = new Rook(Color.BLACK, "rookQ", 0, 0);
 		Knight knight1 = new Knight(Color.BLACK, "knightQ", 1, 0);
@@ -294,6 +296,16 @@ public class Board {
 
 		return false;
 
+	}
+
+	public static boolean staleMate() {
+		return false;
+		/*
+		 * 3 ways to stalemate: insufficient material (not enough firepower), no legal
+		 * moves, and three-fold repetition. Well, there’s one more – 50 king moves with
+		 * no other legal moves – but this almost never occurs outside of scholastic
+		 * tournaments.
+		 */
 	}
 
 }

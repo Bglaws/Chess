@@ -1,4 +1,3 @@
-import java.io.PrintWriter;
 
 public class King extends Piece {
 
@@ -31,7 +30,10 @@ public class King extends Piece {
 
 	@Override
 	public String toString() {
-		return "K";
+		if (this.getColor() == Color.WHITE) {
+			return "♔";
+		}
+		return "♚";
 	}
 
 	public int castle(String side) {

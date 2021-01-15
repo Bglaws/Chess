@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class Game {
 
-	// TODO en passant, pawn promotion, castling, stalemate, checkForCheckmate
+	// TODO en passant, stalemate, checkForCheckmate
 	public static void main(String[] args) {
 		Scanner moveChoice = new Scanner(System.in);
 

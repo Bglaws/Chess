@@ -65,7 +65,7 @@ public class King extends Piece {
 			else if (side.equals("Q")) {
 				// cant castle accross a line of check
 				if (this.move(3, 7, null, this.getColor()) == 0 && this.move(2, 7, null, this.getColor()) == 0) {
-					Board.setPiece(getX(), getY(), null);
+					Board.setPiece(rook.getX(), rook.getY(), null);
 					Board.setPiece(3, 7, rook);
 					return 0;
 				} else {
@@ -80,7 +80,7 @@ public class King extends Piece {
 			if (side.equals("K")) {
 				// cant castle accross a line of check
 				if (this.move(5, 0, null, this.getColor()) == 0 && this.move(6, 0, null, this.getColor()) == 0) {
-					Board.setPiece(getX(), getY(), null);
+					Board.setPiece(rook.getX(), rook.getY(), null);
 					Board.setPiece(5, 0, rook);
 					return 0;
 				} else {
@@ -93,7 +93,7 @@ public class King extends Piece {
 			else if (side.equals("Q")) {
 				// cant castle accross a line of check
 				if (this.move(3, 0, null, this.getColor()) == 0 && this.move(2, 0, null, this.getColor()) == 0) {
-					Board.setPiece(getX(), getY(), null);
+					Board.setPiece(rook.getX(), rook.getY(), null);
 					Board.setPiece(3, 0, rook);
 					return 0;
 				} else {

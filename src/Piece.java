@@ -18,6 +18,13 @@ public abstract class Piece {
 		this.ID = ID;
 		this.x = startX;
 		this.y = startY;
+
+		if (this.getColor() == Color.WHITE) {
+			Board.white.add(this);
+		} else if (this.getColor() == Color.BLACK) {
+			Board.black.add(this);
+		}
+		Board.setPiece(x, y, this);
 	}
 
 	/*
@@ -87,6 +94,21 @@ public abstract class Piece {
 			Board.setPiece(x, y, other);
 			System.out.println("invalid move: cannot put yourself in check.");
 			return -1;
+		}
+
+		if (this instanceof Pawn) {
+			char file = this.getID().charAt(4);
+			if (this.getColor() == Color.WHITE && y == 0) {
+				Board.setPiece(x, y, null);
+				Board.white.remove(this);
+				Queen yasQueen = new Queen(Color.WHITE, "queen" + file, x, y);
+				System.out.println("Pawn promoted!");
+			} else if (this.getColor() == Color.BLACK && y == 7) {
+				Board.setPiece(x, y, null);
+				Board.black.remove(this);
+				Queen yasQueen = new Queen(Color.BLACK, "queen" + file, x, y);
+				System.out.println("Pawn promoted!");
+			}
 		}
 
 		return 0;

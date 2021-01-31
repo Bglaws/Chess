@@ -106,4 +106,10 @@ public class King extends Piece {
 		return -1;
 	}
 
+	@Override
+	public boolean canMove() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

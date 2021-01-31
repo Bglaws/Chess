@@ -43,42 +43,42 @@ public class Board {
 		System.out.println("To castle, type castle, followed by a space and then a capital K or Q to specify a side\n");
 
 		// black
-		Rook rook1 = new Rook(Color.BLACK, "rookQ", 0, 0);
-		Knight knight1 = new Knight(Color.BLACK, "knightQ", 1, 0);
-		Bishop bishop1 = new Bishop(Color.BLACK, "bishopQ", 2, 0);
-		Queen queen1 = new Queen(Color.BLACK, "queen", 3, 0);
-		King king1 = new King(Color.BLACK, "king", 4, 0);
-		Bishop bishop2 = new Bishop(Color.BLACK, "bishopK", 5, 0);
-		Knight knight2 = new Knight(Color.BLACK, "knightK", 6, 0);
-		Rook rook2 = new Rook(Color.BLACK, "rookK", 7, 0);
+		new Rook(Color.BLACK, "rookQ", 0, 0);
+		new Knight(Color.BLACK, "knightQ", 1, 0);
+		new Bishop(Color.BLACK, "bishopQ", 2, 0);
+		new Queen(Color.BLACK, "queen", 3, 0);
+		new King(Color.BLACK, "king", 4, 0);
+		new Bishop(Color.BLACK, "bishopK", 5, 0);
+		new Knight(Color.BLACK, "knightK", 6, 0);
+		new Rook(Color.BLACK, "rookK", 7, 0);
 
-		Pawn pawn1 = new Pawn(Color.BLACK, "pawnA", 0, 1);
-		Pawn pawn2 = new Pawn(Color.BLACK, "pawnB", 1, 1);
-		Pawn pawn3 = new Pawn(Color.BLACK, "pawnC", 2, 1);
-		Pawn pawn4 = new Pawn(Color.BLACK, "pawnD", 3, 1);
-		Pawn pawn5 = new Pawn(Color.BLACK, "pawnE", 4, 1);
-		Pawn pawn6 = new Pawn(Color.BLACK, "pawnF", 5, 1);
-		Pawn pawn7 = new Pawn(Color.BLACK, "pawnG", 6, 1);
-		Pawn pawn8 = new Pawn(Color.BLACK, "pawnH", 7, 1);
+		new Pawn(Color.BLACK, "pawnA", 0, 1);
+		new Pawn(Color.BLACK, "pawnB", 1, 1);
+		new Pawn(Color.BLACK, "pawnC", 2, 1);
+		new Pawn(Color.BLACK, "pawnD", 3, 1);
+		new Pawn(Color.BLACK, "pawnE", 4, 1);
+		new Pawn(Color.BLACK, "pawnF", 5, 1);
+		new Pawn(Color.BLACK, "pawnG", 6, 1);
+		new Pawn(Color.BLACK, "pawnH", 7, 1);
 
 		// white
-		Rook rook3 = new Rook(Color.WHITE, "rookQ", 0, 7);
-		Knight knight3 = new Knight(Color.WHITE, "knightQ", 1, 7);
-		Bishop bishop3 = new Bishop(Color.WHITE, "bishopQ", 2, 7);
-		Queen queen2 = new Queen(Color.WHITE, "queen", 3, 7);
-		King king2 = new King(Color.WHITE, "king", 4, 7);
-		Bishop bishop4 = new Bishop(Color.WHITE, "bishopK", 5, 7);
-		Knight knight4 = new Knight(Color.WHITE, "knightK", 6, 7);
-		Rook rook4 = new Rook(Color.WHITE, "rookK", 7, 7);
+		new Rook(Color.WHITE, "rookQ", 0, 7);
+		new Knight(Color.WHITE, "knightQ", 1, 7);
+		new Bishop(Color.WHITE, "bishopQ", 2, 7);
+		new Queen(Color.WHITE, "queen", 3, 7);
+		new King(Color.WHITE, "king", 4, 7);
+		new Bishop(Color.WHITE, "bishopK", 5, 7);
+		new Knight(Color.WHITE, "knightK", 6, 7);
+		new Rook(Color.WHITE, "rookK", 7, 7);
 
-		Pawn pawn9 = new Pawn(Color.WHITE, "pawnA", 0, 6);
-		Pawn pawn10 = new Pawn(Color.WHITE, "pawnB", 1, 6);
-		Pawn pawn11 = new Pawn(Color.WHITE, "pawnC", 2, 6);
-		Pawn pawn12 = new Pawn(Color.WHITE, "pawnD", 3, 6);
-		Pawn pawn13 = new Pawn(Color.WHITE, "pawnE", 4, 6);
-		Pawn pawn14 = new Pawn(Color.WHITE, "pawnF", 5, 6);
-		Pawn pawn15 = new Pawn(Color.WHITE, "pawnG", 6, 6);
-		Pawn pawn16 = new Pawn(Color.WHITE, "pawnH", 7, 6);
+		new Pawn(Color.WHITE, "pawnA", 0, 6);
+		new Pawn(Color.WHITE, "pawnB", 1, 6);
+		new Pawn(Color.WHITE, "pawnC", 2, 6);
+		new Pawn(Color.WHITE, "pawnD", 3, 6);
+		new Pawn(Color.WHITE, "pawnE", 4, 6);
+		new Pawn(Color.WHITE, "pawnF", 5, 6);
+		new Pawn(Color.WHITE, "pawnG", 6, 6);
+		new Pawn(Color.WHITE, "pawnH", 7, 6);
 	}
 
 	// set piece to provided coordinates
@@ -229,7 +229,6 @@ public class Board {
 	public static boolean checkForCheckmate() {
 
 		return false;
-
 	}
 
 	public static boolean staleMate() {

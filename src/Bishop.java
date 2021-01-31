@@ -31,4 +31,15 @@ public class Bishop extends Piece {
 		return "♝";
 	}
 
+	@Override
+	public boolean canMove() {
+		int x = this.getX();
+		int y = this.getY();
+
+		if (this.getColor() == Color.WHITE){
+			if ()
+		}
+		return false;
+	}
+
 }

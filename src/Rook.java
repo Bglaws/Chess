@@ -34,4 +34,10 @@ public class Rook extends Piece {
 		return "♜";
 	}
 
+	@Override
+	public boolean canMove() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

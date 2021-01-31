@@ -65,7 +65,11 @@ public abstract class Piece {
 		this.y = newY;
 	}
 
-	public abstract boolean possibleMove(int x, int y);
+	public boolean possibleMove(int x, int y){
+	
+	}
+
+	
 
 	public int move(int x, int y, Piece other, Color color) {
 		if (this.possibleMove(x, y) != true) {
@@ -119,4 +123,6 @@ public abstract class Piece {
 	}
 
 	public abstract String toString();
+
+	public abstract boolean canMove();
 }

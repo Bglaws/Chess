@@ -29,4 +29,10 @@ public class Knight extends Piece {
 		return "♞";
 	}
 
+	@Override
+	public boolean canMove() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

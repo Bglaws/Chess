@@ -226,8 +226,11 @@ public class Board {
 		return false;
 	}
 
-	public static boolean checkForCheckmate() {
-
+	public static boolean checkForCheckmate(Color color) {
+		// loop through all possible moves of remainging pieces per team, calling
+		// checkForCheck
+		// after every move. If every possible move still results in a check then its a
+		// checkmate.
 		return false;
 	}
 

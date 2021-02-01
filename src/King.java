@@ -108,7 +108,44 @@ public class King extends Piece {
 
 	@Override
 	public boolean canMove() {
-		// TODO Auto-generated method stub
+		int x = this.getX();
+		int y = this.getY();
+
+		// bishop
+		// top left
+		if (x > 0 && y > 0 && possibleMove(x - 1, y - 1) == true) {
+			return true;
+		}
+		// top right
+		if (x < 7 && y > 0 && possibleMove(x + 1, y - 1) == true) {
+			return true;
+		}
+		// bottom left
+		if (x > 0 && y < 7 && possibleMove(x - 1, y + 1) == true) {
+			return true;
+		}
+		// bottom right
+		if (x < 7 && y < 7 && possibleMove(x + 1, y + 1) == true) {
+			return true;
+		}
+
+		// rook
+		// left
+		if (x > 0 && possibleMove(x - 1, y) == true) {
+			return true;
+		}
+		// right
+		if (x < 7 && possibleMove(x + 1, y) == true) {
+			return true;
+		}
+		// down
+		if (y < 7 && possibleMove(x, y + 1) == true) {
+			return true;
+		}
+		// up
+		if (y > 0 && possibleMove(x, y - 1) == true) {
+			return true;
+		}
 		return false;
 	}
 

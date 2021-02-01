@@ -36,7 +36,40 @@ public class Rook extends Piece {
 
 	@Override
 	public boolean canMove() {
-		// TODO Auto-generated method stub
+		int x = this.getX();
+		int y = this.getY();
+
+		// left
+		while ((--x) >= 0 && y >= 0) {
+			if (this.possibleMove(x, y)) {
+				return true;
+			}
+		}
+		x = this.getX();
+		y = this.getY();
+		// right
+		while ((++x) <= 7 && y >= 0) {
+			if (this.possibleMove(x, y)) {
+				return true;
+			}
+		}
+		x = this.getX();
+		y = this.getY();
+		// down
+		while (x >= 0 && (++y) <= 7) {
+			if (this.possibleMove(x, y)) {
+				return true;
+			}
+		}
+		x = this.getX();
+		y = this.getY();
+		// up
+		while (x <= 7 && (--y) <= 7) {
+			if (this.possibleMove(x, y)) {
+				return true;
+			}
+		}
+
 		return false;
 	}
 

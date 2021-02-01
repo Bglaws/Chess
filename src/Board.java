@@ -122,7 +122,6 @@ public class Board {
 
 	}
 
-	// HERE is path clear not working!!!
 	public static boolean isPathClear(int x1, int y1, int x2, int y2) {
 
 		int xDistance = x2 - x1;
@@ -208,7 +207,6 @@ public class Board {
 			for (int i = 0; i < black.size(); i++) {
 				Piece p = black.get(i);
 				if (p.possibleMove(king.getX(), king.getY())) {
-					System.out.println("king in check");
 					return true;
 				}
 			}
@@ -226,22 +224,49 @@ public class Board {
 		return false;
 	}
 
-	public static boolean checkForCheckmate(Color color) {
-		// loop through all possible moves of remainging pieces per team, calling
-		// checkForCheck
-		// after every move. If every possible move still results in a check then its a
-		// checkmate.
-		return false;
+	public static boolean mate(Color color) {
+
+		if (color == Color.WHITE) {
+			for (int i = 0; i < white.size(); i++) {
+				Piece p = white.get(i);
+				if (p.canMove()) {
+					return false;
+				}
+			}
+		} else if (color == Color.BLACK) {
+			for (int i = 0; i < black.size(); i++) {
+				Piece p = black.get(i);
+				if (p.canMove()) {
+					return false;
+				}
+			}
+		}
+
+		return true;
 	}
 
-	public static boolean staleMate() {
+	public static boolean staleMate(Color color) {
+
+		// insufficient material stalemate
+		Piece king = getPiece("king", color);
+		if (color == Color.WHITE) {
+			if (white.contains(king) && white.size() == 1) {
+				return true;
+			}
+		}
+		if (color == Color.BLACK) {
+			if (black.contains(king) && black.size() == 1) {
+				return true;
+			}
+		}
+
+		// no legal moves stalemate
+		if (mate(color) == true) {
+			return true;
+		}
+
 		return false;
-		/*
-		 * 3 ways to stalemate: insufficient material (not enough firepower), no legal
-		 * moves, and three-fold repetition. Well, there’s one more – 50 king moves with
-		 * no other legal moves – but this almost never occurs outside of scholastic
-		 * tournaments.
-		 */
+
 	}
 
 }

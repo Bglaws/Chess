@@ -36,9 +36,37 @@ public class Bishop extends Piece {
 		int x = this.getX();
 		int y = this.getY();
 
-		if (this.getColor() == Color.WHITE){
-			if ()
+		// top left
+		while ((--x) >= 0 && (--y) >= 0) {
+			if (this.possibleMove(x, y)) {
+				return true;
+			}
 		}
+		x = this.getX();
+		y = this.getY();
+		// top right
+		while ((++x) <= 7 && (--y) >= 0) {
+			if (this.possibleMove(x, y)) {
+				return true;
+			}
+		}
+		x = this.getX();
+		y = this.getY();
+		// bottom left
+		while ((--x) >= 0 && (++y) <= 7) {
+			if (this.possibleMove(x, y)) {
+				return true;
+			}
+		}
+		x = this.getX();
+		y = this.getY();
+		// bottom right
+		while ((++x) <= 7 && (++y) <= 7) {
+			if (this.possibleMove(x, y)) {
+				return true;
+			}
+		}
+
 		return false;
 	}
 

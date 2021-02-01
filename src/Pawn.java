@@ -65,35 +65,36 @@ public class Pawn extends Piece {
 	public boolean canMove() {
 		int x = this.getX();
 		int y = this.getY();
-		if (this.getColor() == Color.WHITE){
-			if (possibleMove(x, y-1) == true) {
+
+		if (this.getColor() == Color.WHITE) {
+			if (possibleMove(x, y - 1) == true) {
 				return true;
 			}
-			if (possibleMove(x, y-2) == true) {
+			if (possibleMove(x, y - 2) == true) {
 				return true;
 			}
-			if (possibleMove(x-1, y-1) == true) {
+			if (possibleMove(x - 1, y - 1) == true) {
 				return true;
 			}
-			if (possibleMove(x+1, y-1) == true) {
-				return true;
-			}
-		}
-		if (this.getColor() == Color.BLACK){
-			if (possibleMove(x, y+1) == true) {
-				return true;
-			}
-			if (possibleMove(x, y+2) == true) {
-				return true;
-			}
-			if (possibleMove(x-1, y+1) == true) {
-				return true;
-			}
-			if (possibleMove(x+1, y+1) == true) {
+			if (possibleMove(x + 1, y - 1) == true) {
 				return true;
 			}
 		}
-		
+		if (this.getColor() == Color.BLACK) {
+			if (possibleMove(x, y + 1) == true) {
+				return true;
+			}
+			if (possibleMove(x, y + 2) == true) {
+				return true;
+			}
+			if (possibleMove(x - 1, y + 1) == true) {
+				return true;
+			}
+			if (possibleMove(x + 1, y + 1) == true) {
+				return true;
+			}
+		}
+
 		return false;
 	}
 

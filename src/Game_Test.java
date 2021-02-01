@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Game_Test {
 
-	// TODO en passant, pawn promotion, castling, stalemate, checkForCheckmate
+	// TODO en passant
 	public static void main(String[] args) throws FileNotFoundException {
 		Scanner moveChoice = new Scanner(new File("game.text"));
 		Board.startGame();

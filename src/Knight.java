@@ -31,7 +31,59 @@ public class Knight extends Piece {
 
 	@Override
 	public boolean canMove() {
-		// TODO Auto-generated method stub
+
+		// left & up
+		int x = this.getX() - 2;
+		int y = this.getY() - 1;
+		if (x >= 0 && y >= 0 && possibleMove(x, y) == true) {
+			return true;
+		}
+
+		x = this.getX() - 1;
+		y = this.getY() - 2;
+		if (x >= 0 && y >= 0 && possibleMove(x, y) == true) {
+			return true;
+		}
+
+		// right & up
+		x = this.getX() + 2;
+		y = this.getY() - 1;
+		if (x <= 7 && y >= 0 && possibleMove(x, y) == true) {
+			return true;
+		}
+
+		x = this.getX() + 1;
+		y = this.getY() - 2;
+		if (x <= 7 && y >= 0 && possibleMove(x, y) == true) {
+			return true;
+		}
+
+		// left & down
+		x = this.getX() - 2;
+		y = this.getY() + 1;
+		if (x >= 0 && y <= 7 && possibleMove(x, y) == true) {
+			return true;
+		}
+
+		x = this.getX() - 1;
+		y = this.getY() + 2;
+		if (x >= 0 && y <= 7 && possibleMove(x, y) == true) {
+			return true;
+		}
+
+		// right & down
+		x = this.getX() + 2;
+		y = this.getY() + 1;
+		if (x <= 7 && y <= 7 && possibleMove(x, y) == true) {
+			return true;
+		}
+
+		x = this.getX() + 1;
+		y = this.getY() + 2;
+		if (x <= 7 && y <= 7 && possibleMove(x, y) == true) {
+			return true;
+		}
+
 		return false;
 	}
 

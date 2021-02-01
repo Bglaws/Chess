@@ -7,7 +7,6 @@ public class Queen extends Piece {
 
 	@Override
 	public boolean possibleMove(int x, int y) {
-		// use breakpoints here, queen is jumping over pieces like knight!
 
 		if (this.sameColor(Board.getPiece(x, y)) == true) {
 			System.out.println("Cannot capture own piece, invalid move");
@@ -38,7 +37,80 @@ public class Queen extends Piece {
 
 	@Override
 	public boolean canMove() {
-		// TODO Auto-generated method stub
+		int x = this.getX();
+		int y = this.getY();
+
+		// bishop
+		// top left
+		while ((--x) >= 0 && (--y) >= 0) {
+			if (this.possibleMove(x, y)) {
+				return true;
+			}
+		}
+
+		x = this.getX();
+		y = this.getY();
+		// top right
+		while ((++x) <= 7 && (--y) >= 0) {
+			if (this.possibleMove(x, y)) {
+				return true;
+			}
+		}
+
+		x = this.getX();
+		y = this.getY();
+		// bottom left
+		while ((--x) >= 0 && (++y) <= 7) {
+			if (this.possibleMove(x, y)) {
+				return true;
+			}
+		}
+
+		x = this.getX();
+		y = this.getY();
+		// bottom right
+		while ((++x) <= 7 && (++y) <= 7) {
+			if (this.possibleMove(x, y)) {
+				return true;
+			}
+		}
+
+		x = this.getX();
+		y = this.getY();
+		// rook
+		// left
+		while ((--x) >= 0 && y >= 0) {
+			if (this.possibleMove(x, y)) {
+				return true;
+			}
+		}
+
+		x = this.getX();
+		y = this.getY();
+		// right
+		while ((++x) <= 7 && y >= 0) {
+			if (this.possibleMove(x, y)) {
+				return true;
+			}
+		}
+
+		x = this.getX();
+		y = this.getY();
+		// down
+		while (x >= 0 && (++y) <= 7) {
+			if (this.possibleMove(x, y)) {
+				return true;
+			}
+		}
+
+		x = this.getX();
+		y = this.getY();
+		// up
+		while (x <= 7 && (--y) <= 7) {
+			if (this.possibleMove(x, y)) {
+				return true;
+			}
+		}
 		return false;
 	}
 

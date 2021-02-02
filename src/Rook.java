@@ -9,9 +9,8 @@ public class Rook extends Piece {
 
 	@Override
 	public boolean possibleMove(int x, int y) {
-
+		// cannot capture own piece
 		if (this.sameColor(Board.getPiece(x, y)) == true) {
-			System.out.println("Cannot capture own piece, invalid move");
 			return false;
 		}
 
@@ -64,7 +63,7 @@ public class Rook extends Piece {
 		x = this.getX();
 		y = this.getY();
 		// up
-		while (x <= 7 && (--y) <= 7) {
+		while (x <= 7 && (--y) >= 0) {
 			if (this.possibleMove(x, y)) {
 				return true;
 			}

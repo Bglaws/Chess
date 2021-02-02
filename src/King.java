@@ -9,9 +9,8 @@ public class King extends Piece {
 
 	@Override
 	public boolean possibleMove(int x, int y) {
-
+		// cannot capture own piece
 		if (this.sameColor(Board.getPiece(x, y)) == true) {
-			System.out.println("Cannot capture own piece, invalid move");
 			return false;
 		}
 

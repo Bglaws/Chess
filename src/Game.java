@@ -35,7 +35,7 @@ public class Game {
 				}
 
 				// move choice
-				System.out.printf("%'s turn \n", color == Color.WHITE ? "White" : "Black");
+				System.out.printf("%s's turn \n", color == Color.WHITE ? "White" : "Black");
 
 				System.out.println("Which piece would you like to move? Where would you like to move them?");
 

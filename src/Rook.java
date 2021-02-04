@@ -7,19 +7,19 @@ public class Rook extends Piece {
 
 	boolean isFirstMove = true;
 
+
 	@Override
 	public boolean possibleMove(int x, int y) {
 		// cannot capture own piece
 		if (this.sameColor(Board.getPiece(x, y)) == true) {
 			return false;
 		}
-
+		// invalid move for rook
 		if (Math.abs(getX() - x) != 0 && Math.abs(getY() - y) != 0) {
 			return false;
 		}
 
 		if (Board.isPathClear(getX(), getY(), x, y)) {
-			isFirstMove = false;
 			return true;
 		}
 		return false;

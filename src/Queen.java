@@ -11,16 +11,17 @@ public class Queen extends Piece {
 		if (this.sameColor(Board.getPiece(x, y)) == true) {
 			return false;
 		}
+		// obstruction
 		if (Board.isPathClear(getX(), getY(), x, y) != true) {
 			return false;
 		}
-
+		// bishop
 		if (Math.abs(getX() - x) == Math.abs(getY() - y)) { // bishop
 			return true;
 		}
-
+		// rook
 		if (Math.abs(getX() - x) != 0 && Math.abs(getY() - y) == 0
-				|| Math.abs(getX() - x) == 0 && Math.abs(getY() - y) != 0) {// rook
+				|| Math.abs(getX() - x) == 0 && Math.abs(getY() - y) != 0) {
 			return true;
 		}
 		return false;

@@ -13,15 +13,13 @@ public class King extends Piece {
 		if (this.sameColor(Board.getPiece(x, y)) == true) {
 			return false;
 		}
-
-		else if (Math.abs(getX() - x) == 1 && Math.abs(getY() - y) == 1) { // bishop
-			isFirstMove = false;
+		// bishop
+		else if (Math.abs(getX() - x) == 1 && Math.abs(getY() - y) == 1) { 
 			return true;
 		}
-
+		// rook
 		else if (Math.abs(getX() - x) == 1 && Math.abs(getY() - y) == 0
-				|| Math.abs(getX() - x) == 0 && Math.abs(getY() - y) == 1) { // rook
-			isFirstMove = false;
+				|| Math.abs(getX() - x) == 0 && Math.abs(getY() - y) == 1) { 
 			return true;
 		}
 		return false;
@@ -40,11 +38,15 @@ public class King extends Piece {
 		int originX = this.getX();
 		int originY = this.getY();
 
-		if (this.isFirstMove != true || rook.isFirstMove != true
-				|| Board.isPathClear(this.getX(), this.getY(), rook.getX(), rook.getY()) != true) {
+		if (this.isFirstMove != true || rook.isFirstMove != true) {
 			System.out.println("Cannot castle if king or rook has already moved");
 			return -1;
 		}
+		if (Board.isPathClear(this.getX(), this.getY(), rook.getX(), rook.getY()) != true){
+			System.out.println("Cannot castle across a line of check");
+			return -1;
+		}
+
 
 		if (this.getColor() == Color.WHITE) {
 

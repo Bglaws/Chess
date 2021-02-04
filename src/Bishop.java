@@ -11,7 +11,7 @@ public class Bishop extends Piece {
 		if (this.sameColor(Board.getPiece(x, y)) == true) {
 			return false;
 		}
-
+		// invalid move for bishop
 		if (Math.abs(getX() - x) != Math.abs(getY() - y)) {
 			return false;
 		}

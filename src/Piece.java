@@ -1,14 +1,14 @@
 
 public abstract class Piece {
 
-	public static String player;
-
 	private final Color color;
 
 	private final String ID;
 
 	/* the current location of this piece */
 	private int x, y;
+
+	private boolean isFirstMove;
 
 	/*
 	 * Piece constructor that should only be called from child class constructor
@@ -83,6 +83,10 @@ public abstract class Piece {
 		Board.setPiece(originX, originY, null);
 		Board.setPiece(x, y, this);
 
+		if (this instanceof King || this instanceof Rook) {
+			this.isFirstMove = false;
+		}
+
 		if (Board.checkForCheck(color) == true) {
 			if (this.getColor() == Color.WHITE) {
 				Board.black.add(other);
@@ -93,6 +97,10 @@ public abstract class Piece {
 			Board.setPiece(originX, originY, this);
 			Board.setPiece(x, y, other);
 			System.out.println("invalid move: cannot put yourself in check.");
+			if (this instanceof King || this instanceof Rook) {
+				this.isFirstMove = true;
+			}
+
 			return -1;
 		}
 

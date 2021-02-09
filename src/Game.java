@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class Game {
 
-	// TODO en passant
+	// TODO en passant, canMove() doesnt call check for check 
 	public static void main(String[] args) {
 		Scanner moveChoice = new Scanner(System.in);
 

@@ -195,7 +195,7 @@ public class Board {
 		// piece at destination
 		Piece other = getPiece(file, rank);
 
-		return p.move(file, rank, other, color);
+		return p.move(file, rank, other);
 
 	}
 

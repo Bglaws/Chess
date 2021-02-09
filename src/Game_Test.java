@@ -6,7 +6,7 @@ public class Game_Test {
 
 	// TODO en passant
 	public static void main(String[] args) throws FileNotFoundException {
-		Scanner moveChoice = new Scanner(new File("game2.text"));
+		Scanner moveChoice = new Scanner(new File("./game2.text"));
 
 		while (true) {
 			Board.startGame();

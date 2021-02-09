@@ -8,7 +8,7 @@ public abstract class Piece {
 	/* the current location of this piece */
 	private int x, y;
 
-	private boolean isFirstMove;
+	public boolean isFirstMove;
 
 	/*
 	 * Piece constructor that should only be called from child class constructor
@@ -65,12 +65,14 @@ public abstract class Piece {
 		this.y = newY;
 	}
 
-	public abstract boolean possibleMove(int x, int y);
+	public abstract boolean possibleMove (int x, int y);
 
-	public int move(int x, int y, Piece other, Color color) {
+	public int move(int x, int y, Piece other) {
 		if (this.possibleMove(x, y) != true) {
 			return -1;
 		}
+		
+		Color color = this.getColor();
 		int originX = this.getX();
 		int originY = this.getY();
 
@@ -83,23 +85,21 @@ public abstract class Piece {
 		Board.setPiece(originX, originY, null);
 		Board.setPiece(x, y, this);
 
-		if (this instanceof King || this instanceof Rook) {
-			this.isFirstMove = false;
-		}
+		boolean isFirstMoveOG = this.isFirstMove;
+		this.isFirstMove = false;
 
 		if (Board.checkForCheck(color) == true) {
-			if (this.getColor() == Color.WHITE) {
-				Board.black.add(other);
-			} else {
-				Board.white.add(other);
+			if (other != null) {
+				if (this.getColor() == Color.WHITE) {
+					Board.black.add(other);
+				} else {
+					Board.white.add(other);
+				}
 			}
-
 			Board.setPiece(originX, originY, this);
 			Board.setPiece(x, y, other);
 			System.out.println("invalid move: cannot put yourself in check.");
-			if (this instanceof King || this instanceof Rook) {
-				this.isFirstMove = true;
-			}
+			this.isFirstMove = isFirstMoveOG;
 
 			return -1;
 		}

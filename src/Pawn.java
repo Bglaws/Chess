@@ -64,102 +64,40 @@ public class Pawn extends Piece {
 		int x = this.getX();
 		int y = this.getY();
 
-		int originX = x;
-		int originY = y;
-		Piece other;
-		boolean isFirst = this.isFirstMove;
-
 		if (this.getColor() == Color.WHITE) {
-			other = Board.getPiece(x, y - 1);
 
-			if (this.move(x, y - 1, other) == 0) {
-				
-				Board.setPiece(originX, originY, other);
-				Board.setPiece(originX, originY, this);
-				isFirst = this.isFirstMove;
-				if (other != null){
-					Board.black.add(other);
-				}
+			if (this.testMove(x, y - 1)) {
 				return true;
 			}
-			other = Board.getPiece(x, y - 2);
-			if (this.move(x, y - 2, other) == 0) {
-				
-				Board.setPiece(originX, originY, other);
-				Board.setPiece(originX, originY, this);
-				isFirst = this.isFirstMove;
-				if (other != null){
-					Board.black.add(other);
-				}
-				return true;
-			}
-			other = Board.getPiece(x - 1, y - 1);
-			if (this.move(x - 1, y - 1, other) == 0) {
 
-				Board.setPiece(originX, originY, other);
-				Board.setPiece(originX, originY, this);
-				isFirst = this.isFirstMove;
-				if (other != null){
-					Board.black.add(other);
-				}
+			if (this.testMove(x, y - 2)) {
 				return true;
 			}
-			other = Board.getPiece(x + 1, y - 1);
-			if (this.move(x + 1, y - 1, other) == 0) {
-				
-				Board.setPiece(originX, originY, other);
-				Board.setPiece(originX, originY, this);
-				isFirst = this.isFirstMove;
-				if (other != null){
-					Board.black.add(other);
-				}
+
+			if (this.testMove(x - 1, y - 1)) {
 				return true;
 			}
+
+			if (this.testMove(x + 1, y - 1)) {
+				return true;
+			}
+
 		}
 		if (this.getColor() == Color.BLACK) {
-			other = Board.getPiece(x, y + 1);
 
-			if (this.move(x, y + 1, other) == 0) {
-				
-				Board.setPiece(originX, originY, other);
-				Board.setPiece(originX, originY, this);
-				isFirst = this.isFirstMove;
-				if (other != null){
-					Board.black.add(other);
-				}
+			if (this.testMove(x, y + 1)) {
 				return true;
 			}
-			other = Board.getPiece(x, y + 2);
-			if (this.move(x, y + 2, other) == 0) {
 
-				Board.setPiece(originX, originY, other);
-				Board.setPiece(originX, originY, this);
-				isFirst = this.isFirstMove;
-				if (other != null){
-					Board.black.add(other);
-				}
+			if (this.testMove(x, y + 2)) {
 				return true;
 			}
-			other = Board.getPiece(x - 1, y + 1);
-			if (this.move(x - 1, y + 1, other) == 0) {
 
-				Board.setPiece(originX, originY, other);
-				Board.setPiece(originX, originY, this);
-				isFirst = this.isFirstMove;
-				if (other != null){
-					Board.black.add(other);
-				}
+			if (this.testMove(x - 1, y - 1)) {
 				return true;
 			}
-			other = Board.getPiece(x + 1, y + 1);
-			if (this.move(x + 1, y + 1, other) == 0) {
-				
-				Board.setPiece(originX, originY, other);
-				Board.setPiece(originX, originY, this);
-				isFirst = this.isFirstMove;
-				if (other != null){
-					Board.black.add(other);
-				}
+
+			if (this.testMove(x + 1, y + 1)) {
 				return true;
 			}
 		}

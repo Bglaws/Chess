@@ -14,12 +14,12 @@ public class King extends Piece {
 			return false;
 		}
 		// bishop
-		else if (Math.abs(getX() - x) == 1 && Math.abs(getY() - y) == 1) { 
+		else if (Math.abs(getX() - x) == 1 && Math.abs(getY() - y) == 1) {
 			return true;
 		}
 		// rook
 		else if (Math.abs(getX() - x) == 1 && Math.abs(getY() - y) == 0
-				|| Math.abs(getX() - x) == 0 && Math.abs(getY() - y) == 1) { 
+				|| Math.abs(getX() - x) == 0 && Math.abs(getY() - y) == 1) {
 			return true;
 		}
 		return false;
@@ -42,17 +42,16 @@ public class King extends Piece {
 			System.out.println("Cannot castle if king or rook has already moved");
 			return -1;
 		}
-		if (Board.isPathClear(this.getX(), this.getY(), rook.getX(), rook.getY()) != true){
+		if (Board.isPathClear(this.getX(), this.getY(), rook.getX(), rook.getY()) != true) {
 			System.out.println("Cannot castle across a line of check");
 			return -1;
 		}
-
 
 		if (this.getColor() == Color.WHITE) {
 
 			if (side.equals("K")) {
 				// cant castle accross a line of check
-				if (this.move(5, 7, null, this.getColor()) == 0 && this.move(6, 7, null, this.getColor()) == 0) {
+				if (this.move(5, 7, null) == 0 && this.move(6, 7, null) == 0) {
 					Board.setPiece(rook.getX(), rook.getY(), null);
 					Board.setPiece(5, 7, rook);
 					return 0;
@@ -65,7 +64,7 @@ public class King extends Piece {
 
 			else if (side.equals("Q")) {
 				// cant castle accross a line of check
-				if (this.move(3, 7, null, this.getColor()) == 0 && this.move(2, 7, null, this.getColor()) == 0) {
+				if (this.move(3, 7, null) == 0 && this.move(2, 7, null) == 0) {
 					Board.setPiece(rook.getX(), rook.getY(), null);
 					Board.setPiece(3, 7, rook);
 					return 0;
@@ -80,7 +79,7 @@ public class King extends Piece {
 		if (this.getColor() == Color.BLACK) {
 			if (side.equals("K")) {
 				// cant castle accross a line of check
-				if (this.move(5, 0, null, this.getColor()) == 0 && this.move(6, 0, null, this.getColor()) == 0) {
+				if (this.move(5, 0, null) == 0 && this.move(6, 0, null) == 0) {
 					Board.setPiece(rook.getX(), rook.getY(), null);
 					Board.setPiece(5, 0, rook);
 					return 0;
@@ -93,7 +92,7 @@ public class King extends Piece {
 
 			else if (side.equals("Q")) {
 				// cant castle accross a line of check
-				if (this.move(3, 0, null, this.getColor()) == 0 && this.move(2, 0, null, this.getColor()) == 0) {
+				if (this.move(3, 0, null) == 0 && this.move(2, 0, null) == 0) {
 					Board.setPiece(rook.getX(), rook.getY(), null);
 					Board.setPiece(3, 0, rook);
 					return 0;

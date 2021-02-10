@@ -65,13 +65,13 @@ public abstract class Piece {
 		this.y = newY;
 	}
 
-	public abstract boolean possibleMove (int x, int y);
+	public abstract boolean possibleMove(int x, int y);
 
 	public int move(int x, int y, Piece other) {
 		if (this.possibleMove(x, y) != true) {
 			return -1;
 		}
-		
+
 		Color color = this.getColor();
 		int originX = this.getX();
 		int originY = this.getY();
@@ -120,6 +120,32 @@ public abstract class Piece {
 		}
 
 		return 0;
+	}
+
+	public boolean testMove(int x, int y) {
+		int originX = this.getX();
+		int originY = this.getY();
+		Piece other;
+		boolean isFirst = this.isFirstMove;
+
+		if (x >= 0 && y >= 0) {
+			other = Board.getPiece(x, y);
+			if (this.move(x, y, other) == 0) {
+				// captured piece set to original position
+				Board.setPiece(x, y, other);
+				// selected piece set to original position
+				Board.setPiece(originX, originY, this);
+				isFirstMove = isFirst;
+				if (other != null) {
+					if (other.getColor() == Color.WHITE) {
+						Board.white.add(other);
+					} else
+						Board.black.add(other);
+				}
+				return true;
+			}
+		}
+		return false;
 	}
 
 	public String nullToString() {

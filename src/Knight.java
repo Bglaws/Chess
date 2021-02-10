@@ -7,7 +7,7 @@ public class Knight extends Piece {
 
 	@Override
 	public boolean possibleMove(int x, int y) {
-		//cannot capture own piece
+		// cannot capture own piece
 		if (this.sameColor(Board.getPiece(x, y)) == true) {
 			return false;
 		}
@@ -31,55 +31,38 @@ public class Knight extends Piece {
 	@Override
 	public boolean canMove() {
 
+		int x = this.getX();
+		int y = this.getY();
+
 		// left & up
-		int x = this.getX() - 2;
-		int y = this.getY() - 1;
-		if (x >= 0 && y >= 0 && possibleMove(x, y) == true) {
+		if (this.testMove(x - 2, y - 1)) {
 			return true;
 		}
-
-		x = this.getX() - 1;
-		y = this.getY() - 2;
-		if (x >= 0 && y >= 0 && possibleMove(x, y) == true) {
+		if (this.testMove(x - 1, y - 2)) {
 			return true;
 		}
 
 		// right & up
-		x = this.getX() + 2;
-		y = this.getY() - 1;
-		if (x <= 7 && y >= 0 && possibleMove(x, y) == true) {
+		if (this.testMove(x + 2, y - 1)) {
 			return true;
 		}
-
-		x = this.getX() + 1;
-		y = this.getY() - 2;
-		if (x <= 7 && y >= 0 && possibleMove(x, y) == true) {
+		if (this.testMove(x + 1, y - 2)) {
 			return true;
 		}
 
 		// left & down
-		x = this.getX() - 2;
-		y = this.getY() + 1;
-		if (x >= 0 && y <= 7 && possibleMove(x, y) == true) {
+		if (this.testMove(x - 2, y + 1)) {
 			return true;
 		}
-
-		x = this.getX() - 1;
-		y = this.getY() + 2;
-		if (x >= 0 && y <= 7 && possibleMove(x, y) == true) {
+		if (this.testMove(x - 1, y + 2)) {
 			return true;
 		}
 
 		// right & down
-		x = this.getX() + 2;
-		y = this.getY() + 1;
-		if (x <= 7 && y <= 7 && possibleMove(x, y) == true) {
+		if (this.testMove(x + 2, y + 1)) {
 			return true;
 		}
-
-		x = this.getX() + 1;
-		y = this.getY() + 2;
-		if (x <= 7 && y <= 7 && possibleMove(x, y) == true) {
+		if (this.testMove(x + 1, y + 2)) {
 			return true;
 		}
 

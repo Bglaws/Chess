@@ -32,8 +32,14 @@ public class Bishop extends Piece {
 
 	@Override
 	public boolean canMove() {
-		int x = this.getX();
-		int y = this.getY();
+
+		int originX = this.getX();
+		int originY = this.getY();
+		Piece other;
+
+		// reset x and y to original position after each while loop
+		int x = originX;
+		int y = originY;
 
 		// top left
 		while ((--x) >= 0 && (--y) >= 0) {
@@ -41,24 +47,24 @@ public class Bishop extends Piece {
 				return true;
 			}
 		}
-		x = this.getX();
-		y = this.getY();
+		x = originX;
+		y = originY;
 		// top right
 		while ((++x) <= 7 && (--y) >= 0) {
 			if (this.possibleMove(x, y)) {
 				return true;
 			}
 		}
-		x = this.getX();
-		y = this.getY();
+		x = originX;
+		y = originY;
 		// bottom left
 		while ((--x) >= 0 && (++y) <= 7) {
 			if (this.possibleMove(x, y)) {
 				return true;
 			}
 		}
-		x = this.getX();
-		y = this.getY();
+		x = originX;
+		y = originY;
 		// bottom right
 		while ((++x) <= 7 && (++y) <= 7) {
 			if (this.possibleMove(x, y)) {

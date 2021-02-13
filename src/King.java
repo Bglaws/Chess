@@ -113,37 +113,37 @@ public class King extends Piece {
 
 		// bishop
 		// top left
-		if (x > 0 && y > 0 && possibleMove(x - 1, y - 1) == true) {
+		if (this.testMove(x - 1, y - 1)) {
 			return true;
 		}
 		// top right
-		if (x < 7 && y > 0 && possibleMove(x + 1, y - 1) == true) {
+		if (this.testMove(x + 1, y - 1)) {
 			return true;
 		}
 		// bottom left
-		if (x > 0 && y < 7 && possibleMove(x - 1, y + 1) == true) {
+		if (this.testMove(x - 1, y + 1)) {
 			return true;
 		}
 		// bottom right
-		if (x < 7 && y < 7 && possibleMove(x + 1, y + 1) == true) {
+		if (this.testMove(x + 1, y + 1)) {
 			return true;
 		}
 
 		// rook
 		// left
-		if (x > 0 && possibleMove(x - 1, y) == true) {
+		if (this.testMove(x - 1, y)) {
 			return true;
 		}
 		// right
-		if (x < 7 && possibleMove(x + 1, y) == true) {
+		if (this.testMove(x + 1, y)) {
 			return true;
 		}
 		// down
-		if (y < 7 && possibleMove(x, y + 1) == true) {
+		if (this.testMove(x, y + 1)) {
 			return true;
 		}
 		// up
-		if (y > 0 && possibleMove(x, y - 1) == true) {
+		if (this.testMove(x, y - 1)) {
 			return true;
 		}
 		return false;

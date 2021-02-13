@@ -43,7 +43,7 @@ public class Bishop extends Piece {
 
 		// top left
 		while ((--x) >= 0 && (--y) >= 0) {
-			if (this.possibleMove(x, y)) {
+			if (this.testMove(x, y)) {
 				return true;
 			}
 		}
@@ -51,7 +51,7 @@ public class Bishop extends Piece {
 		y = originY;
 		// top right
 		while ((++x) <= 7 && (--y) >= 0) {
-			if (this.possibleMove(x, y)) {
+			if (this.testMove(x, y)) {
 				return true;
 			}
 		}
@@ -59,7 +59,7 @@ public class Bishop extends Piece {
 		y = originY;
 		// bottom left
 		while ((--x) >= 0 && (++y) <= 7) {
-			if (this.possibleMove(x, y)) {
+			if (this.testMove(x, y)) {
 				return true;
 			}
 		}
@@ -67,11 +67,10 @@ public class Bishop extends Piece {
 		y = originY;
 		// bottom right
 		while ((++x) <= 7 && (++y) <= 7) {
-			if (this.possibleMove(x, y)) {
+			if (this.testMove(x, y)) {
 				return true;
 			}
 		}
-
 		return false;
 	}
 

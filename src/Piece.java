@@ -98,7 +98,6 @@ public abstract class Piece {
 			}
 			Board.setPiece(originX, originY, this);
 			Board.setPiece(x, y, other);
-			System.out.println("invalid move: cannot put yourself in check.");
 			this.isFirstMove = isFirstMoveOG;
 
 			return -1;
@@ -128,7 +127,7 @@ public abstract class Piece {
 		Piece other;
 		boolean isFirst = this.isFirstMove;
 
-		if (x >= 0 && y >= 0) {
+		if (x >= 0 && y >= 0 && x <= 7 && y <= 7) {
 			other = Board.getPiece(x, y);
 			if (this.move(x, y, other) == 0) {
 				// captured piece set to original position

@@ -40,7 +40,7 @@ public class Rook extends Piece {
 
 		// left
 		while ((--x) >= 0 && y >= 0) {
-			if (this.possibleMove(x, y)) {
+			if (this.testMove(x, y)) {
 				return true;
 			}
 		}
@@ -48,7 +48,7 @@ public class Rook extends Piece {
 		y = this.getY();
 		// right
 		while ((++x) <= 7 && y >= 0) {
-			if (this.possibleMove(x, y)) {
+			if (this.testMove(x, y)) {
 				return true;
 			}
 		}
@@ -56,7 +56,7 @@ public class Rook extends Piece {
 		y = this.getY();
 		// down
 		while (x >= 0 && (++y) <= 7) {
-			if (this.possibleMove(x, y)) {
+			if (this.testMove(x, y)) {
 				return true;
 			}
 		}
@@ -64,7 +64,7 @@ public class Rook extends Piece {
 		y = this.getY();
 		// up
 		while (x <= 7 && (--y) >= 0) {
-			if (this.possibleMove(x, y)) {
+			if (this.testMove(x, y)) {
 				return true;
 			}
 		}

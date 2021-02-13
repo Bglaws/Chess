@@ -261,7 +261,7 @@ public class Board {
 		}
 
 		// no legal moves stalemate
-		if (mate(color) == true) {
+		if (mate(color) == true && checkForCheck(color) == false) {
 			return true;
 		}
 

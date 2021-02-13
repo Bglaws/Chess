@@ -37,13 +37,14 @@ public class Queen extends Piece {
 
 	@Override
 	public boolean canMove() {
+		
 		int x = this.getX();
 		int y = this.getY();
 
 		// bishop
 		// top left
 		while ((--x) >= 0 && (--y) >= 0) {
-			if (this.possibleMove(x, y)) {
+			if (this.testMove(x, y)) {
 				return true;
 			}
 		}
@@ -52,7 +53,7 @@ public class Queen extends Piece {
 		y = this.getY();
 		// top right
 		while ((++x) <= 7 && (--y) >= 0) {
-			if (this.possibleMove(x, y)) {
+			if (this.testMove(x, y)) {
 				return true;
 			}
 		}
@@ -61,7 +62,7 @@ public class Queen extends Piece {
 		y = this.getY();
 		// bottom left
 		while ((--x) >= 0 && (++y) <= 7) {
-			if (this.possibleMove(x, y)) {
+			if (this.testMove(x, y)) {
 				return true;
 			}
 		}
@@ -70,7 +71,7 @@ public class Queen extends Piece {
 		y = this.getY();
 		// bottom right
 		while ((++x) <= 7 && (++y) <= 7) {
-			if (this.possibleMove(x, y)) {
+			if (this.testMove(x, y)) {
 				return true;
 			}
 		}
@@ -80,7 +81,7 @@ public class Queen extends Piece {
 		// rook
 		// left
 		while ((--x) >= 0 && y >= 0) {
-			if (this.possibleMove(x, y)) {
+			if (this.testMove(x, y)) {
 				return true;
 			}
 		}
@@ -89,7 +90,7 @@ public class Queen extends Piece {
 		y = this.getY();
 		// right
 		while ((++x) <= 7 && y >= 0) {
-			if (this.possibleMove(x, y)) {
+			if (this.testMove(x, y)) {
 				return true;
 			}
 		}
@@ -98,7 +99,7 @@ public class Queen extends Piece {
 		y = this.getY();
 		// down
 		while (x >= 0 && (++y) <= 7) {
-			if (this.possibleMove(x, y)) {
+			if (this.testMove(x, y)) {
 				return true;
 			}
 		}
@@ -107,7 +108,7 @@ public class Queen extends Piece {
 		y = this.getY();
 		// up
 		while (x <= 7 && (--y) >= 0) {
-			if (this.possibleMove(x, y)) {
+			if (this.testMove(x, y)) {
 				return true;
 			}
 		}

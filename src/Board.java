@@ -36,9 +36,9 @@ public class Board {
 
 	static void startGame() {
 		System.out.println("How to play:");
-		System.out.println("For pawns, type in \"pawn\" followed by the file letter");
+		System.out.println("For pawns, type in \"pawn\" followed by the file letter. For example, PawnA a4");
 		System.out.println("For bishops, knights and rooks, put \"Q\" or \"K\" to specify Queen's or King's side");
-		System.out.println("provide a space and then enter a valid tile. For example, pawnA a4");
+		System.out.println("provide a space and then enter a valid tile. For example, bishopK c4");
 		System.out.println("Pawns auto-promote to queens. The new queens are referenced by what the pawns file was");
 		System.out.println("To castle, type castle, followed by a space and then a capital K or Q to specify a side\n");
 
@@ -249,15 +249,10 @@ public class Board {
 
 		// insufficient material stalemate
 		Piece king = getPiece("king", color);
-		if (color == Color.WHITE) {
-			if (white.contains(king) && white.size() == 1) {
-				return true;
-			}
-		}
-		if (color == Color.BLACK) {
-			if (black.contains(king) && black.size() == 1) {
-				return true;
-			}
+		
+		if (white.contains(king) && white.size() == 1
+		&& black.contains(king) && black.size() == 1) {
+			return true;
 		}
 
 		// no legal moves stalemate

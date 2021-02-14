@@ -6,7 +6,7 @@ public class Game_Test {
 
 	// TODO en passant
 	public static void main(String[] args) throws FileNotFoundException {
-		Scanner moveChoice = new Scanner(new File("./game2.text"));
+		Scanner moveChoice = new Scanner(new File("./tests/game4.text"));
 
 		while (true) {
 			Board.startGame();
@@ -29,14 +29,14 @@ public class Game_Test {
 				if (Board.checkForCheck(color) == true) {
 					if (Board.mate(color) == true) {
 
-						System.out.printf("game over, %s wins \n", color == Color.WHITE ? "White" : "Black");
+						System.out.printf("Checkmate, %s wins \n", color == Color.WHITE ? "Black" : "White");
 						break;
 					}
-					System.out.printf("%s is in check! \n", color == Color.WHITE ? "White" : "Black");
+					System.out.printf("%s is in Check! \n", color == Color.WHITE ? "Black" : "White");
 				}
 
 				// move choice
-				System.out.printf("%s's turn \n", color == Color.WHITE ? "White" : "Black");
+				System.out.printf("%s's turn \n", color == Color.WHITE ? "Black" : "White");
 
 				System.out.println("Which piece would you like to move? Where would you like to move them?");
 

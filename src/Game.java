@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class Game {
 
-	// TODO en passant, canMove() doesnt call check for check 
+	// TODO en passant, canMove() doesnt call check for check
 	public static void main(String[] args) {
 		Scanner moveChoice = new Scanner(System.in);
 
@@ -35,7 +35,7 @@ public class Game {
 				}
 
 				// move choice
-				System.out.printf("%s's turn \n", color == Color.WHITE ? "Black" : "White");
+				System.out.printf("%s's turn \n", color == Color.WHITE ? "White" : "Black");
 
 				System.out.println("Which piece would you like to move? Where would you like to move them?");
 

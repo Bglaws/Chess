@@ -248,10 +248,23 @@ public class Board {
 	public static boolean staleMate(Color color) {
 
 		// insufficient material stalemate
-		Piece king = getPiece("king", color);
-		
-		if (white.contains(king) && white.size() == 1
-		&& black.contains(king) && black.size() == 1) {
+		Piece knightK = getPiece("knightK", color);
+		Piece knightQ = getPiece("knightQ", color);
+		Piece bishopK = getPiece("bishopK", color);
+		Piece bishopQ = getPiece("bishopQ", color);
+
+		if (white.size() == 2 && black.size() == 2) {
+			if (white.contains(bishopK) || white.contains(bishopQ) || white.contains(knightK)
+					|| white.contains(knightQ)) {
+				return true;
+			}
+			if (black.contains(bishopK) || black.contains(bishopQ) || black.contains(knightK)
+					|| white.contains(knightQ)) {
+				return true;
+			}
+
+		}
+		if (white.size() == 1 && white.get(0) instanceof King && black.size() == 1 && black.get(0) instanceof King) {
 			return true;
 		}
 

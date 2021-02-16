@@ -20,4 +20,6 @@ $ java Game
 ### Pictures
 ![Overview](pics/Chess1.png)
 
+![Overview](pics/Chess2.png)
+
 ![Overview](pics/Chess3.png)

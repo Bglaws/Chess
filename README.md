@@ -12,10 +12,11 @@ Make sure your terminal is displaying UTF-8 properly, otherwise the chess pieces
 
 
 ## How to build and run
+```sh
 $ git clone https://github.com/Bglaws/Chess
 $ cd Chess/src
 $ javac Game.java
-$ java Game
+$ java Game```
 
 ### Pictures
 ![Overview](pics/Chess1.png)

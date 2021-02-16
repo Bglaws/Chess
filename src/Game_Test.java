@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 public class Game_Test {
 
-	// TODO en passant
 	public static void main(String[] args) throws FileNotFoundException {
 		Scanner moveChoice = new Scanner(new File("./tests/game3.text"));
 
@@ -32,7 +31,7 @@ public class Game_Test {
 						System.out.printf("Checkmate, %s wins \n", color == Color.WHITE ? "Black" : "White");
 						break;
 					}
-					System.out.printf("%s is in Check! \n", color == Color.WHITE ? "Black" : "White");
+					System.out.printf("%s is in Check! \n", color == Color.WHITE ? "White" : "Black");
 				}
 
 				// move choice

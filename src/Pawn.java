@@ -11,7 +11,6 @@ public class Pawn extends Piece {
 	public boolean possibleMove(int x, int y) {
 		// TODO en passant
 
-		// somewhere in here
 		if (this.getColor() == Color.WHITE) {
 
 			// 2 spaces forward

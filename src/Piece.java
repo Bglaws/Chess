@@ -5,14 +5,10 @@ public abstract class Piece {
 
 	private final String ID;
 
-	/* the current location of this piece */
 	private int x, y;
 
 	public boolean isFirstMove;
 
-	/*
-	 * Piece constructor that should only be called from child class constructor
-	 */
 	public Piece(Color color, String ID, int startX, int startY) {
 		this.color = color;
 		this.ID = ID;
@@ -27,9 +23,6 @@ public abstract class Piece {
 		Board.setPiece(x, y, this);
 	}
 
-	/*
-	 * these do not need to change as they will be consistent across all piece types
-	 */
 	public String getID() {
 		return this.ID;
 	}

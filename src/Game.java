@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class Game {
 
-	// TODO en passant, canMove() doesnt call check for check
+	// TODO en passant
 	public static void main(String[] args) {
 		Scanner moveChoice = new Scanner(System.in);
 
@@ -13,7 +13,7 @@ public class Game {
 			int turns = 0;
 			Color color;
 
-			while (true/* while checkMate = false */) {
+			while (true) {
 				Board.printBoard();
 				// check for check
 				if (turns % 2 == 0) {
@@ -31,13 +31,11 @@ public class Game {
 						System.out.printf("Checkmate, %s wins \n", color == Color.WHITE ? "Black" : "White");
 						break;
 					}
-					System.out.printf("%s is in Check! \n", color == Color.WHITE ? "Black" : "White");
+					System.out.printf("%s is in Check! \n", color == Color.WHITE ? "White" : "Black");
 				}
 
 				// move choice
 				System.out.printf("%s's turn \n", color == Color.WHITE ? "White" : "Black");
-
-				System.out.println("Which piece would you like to move? Where would you like to move them?");
 
 				String move = moveChoice.nextLine();
 				// process move

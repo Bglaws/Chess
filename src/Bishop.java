@@ -35,7 +35,6 @@ public class Bishop extends Piece {
 
 		int originX = this.getX();
 		int originY = this.getY();
-		Piece other;
 
 		// reset x and y to original position after each while loop
 		int x = originX;

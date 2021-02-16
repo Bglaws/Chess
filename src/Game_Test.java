@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Game_Test {
 
 	public static void main(String[] args) throws FileNotFoundException {
-		Scanner moveChoice = new Scanner(new File("./tests/game3.text"));
+		Scanner moveChoice = new Scanner(new File("./tests/game2.text"));
 
 		while (true) {
 			Board.startGame();
@@ -36,8 +36,6 @@ public class Game_Test {
 
 				// move choice
 				System.out.printf("%s's turn \n", color == Color.WHITE ? "White" : "Black");
-
-				System.out.println("Which piece would you like to move? Where would you like to move them?");
 
 				String move = moveChoice.nextLine();
 				System.out.println(move);

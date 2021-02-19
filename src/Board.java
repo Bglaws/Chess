@@ -1,8 +1,6 @@
-import java.io.PrintWriter;
 import java.util.ArrayList;
 
 public class Board {
-	static PrintWriter printWriter = new PrintWriter(System.out);
 	public static ArrayList<Piece> black = new ArrayList<Piece>();
 	public static ArrayList<Piece> white = new ArrayList<Piece>();
 

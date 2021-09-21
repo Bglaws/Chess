@@ -32,11 +32,13 @@ public class Board {
 
 	static void startGame() {
 		System.out.println("How to play:");
-		System.out.println("For pawns, type in \"pawn\" followed by the file letter. For example, \"PawnA\"");
+		System.out.println("For pawns, type in \"pawn\" followed by the file letter. For example, \"pawnA\"");
 		System.out.println("For bishops, knights and rooks, put \"Q\" or \"K\" to specify Queen's or King's side");
 		System.out.println("provide a space and then enter a valid tile. For example, \"bishopK c4\"");
-		System.out.println("Pawns auto-promote to queens. The new queens are referenced by what the pawns file was. \"queenH\"");
-		System.out.println("To castle, type castle, followed by a space and then a capital K or Q to specify a side. \"castle Q\"\n");
+		System.out.println(
+				"Pawns auto-promote to queens. The new queens are referenced by what the pawns file was. \"queenH\"");
+		System.out.println(
+				"To castle, type castle, followed by a space and then a capital K or Q to specify a side. \"castle Q\"\n");
 
 		// black
 		new Rook(Color.BLACK, "rookQ", 0, 0);
